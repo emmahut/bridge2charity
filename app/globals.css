@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* B2C Brand Colors */
+  --color-navy:         #050a30;
+  --color-navy-light:   #0d1554;
+  --color-olive:        #4f6815;
+  --color-olive-light:  #6a8c1e;
+  --color-orange:       #f16927;
+  --color-orange-light: #f48a52;
+  --color-maroon:       #75070c;
+  --color-maroon-light: #9e0d14;
+  --color-cream:        #FBF6F0;
+  --color-amber:        #fbbf24;
+
+  /* Fonts */
+  --font-montserrat: var(--font-montserrat), 'Helvetica Neue', sans-serif;
+  --font-jakarta:    var(--font-jakarta), 'Helvetica Neue', sans-serif;
+  --font-nunito:     var(--font-nunito), Arial, sans-serif;
+  --font-inter:      var(--font-inter), Arial, sans-serif;
+  --font-dm-sans:    var(--font-dm-sans), Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: #050a30;
+  font-family: var(--font-nunito), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-family: var(--font-montserrat), 'Helvetica Neue', sans-serif;
+}
+
+h3, h4 {
+  font-family: var(--font-jakarta), 'Helvetica Neue', sans-serif;
+}
+
+*:focus-visible {
+  outline: 2px solid #f16927;
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
