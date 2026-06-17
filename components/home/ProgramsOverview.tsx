@@ -8,20 +8,27 @@ export default function ProgramsOverview() {
   return (
     <SectionWrapper className="bg-white" id="programs">
       {/* Section label */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center justify-center gap-3 mb-4">
         <div className="h-px w-8 bg-orange" />
-        <span className="text-orange text-sm font-lato font-semibold tracking-widest uppercase">
+        <span
+          className="text-orange text-sm font-semibold tracking-widest uppercase"
+          style={{ fontFamily: "var(--font-jakarta)" }}
+        >
           What We Do
         </span>
       </div>
 
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-        <h2 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-navy font-bold leading-tight max-w-xl">
+      <div className="text-center mb-14">
+        <h2
+          className="text-3xl sm:text-4xl lg:text-5xl text-navy font-bold leading-tight mb-6"
+          style={{ fontFamily: "var(--font-montserrat)" }}
+        >
           Three Programs. One Mission.
         </h2>
         <Link
           href="/programs"
-          className="inline-flex items-center gap-2 text-orange font-lato font-semibold text-sm hover:gap-3 transition-all duration-200"
+          className="inline-flex items-center gap-2 text-orange font-semibold text-sm hover:gap-3 transition-all duration-200"
+          style={{ fontFamily: "var(--font-jakarta)" }}
         >
           View all programs <ArrowRight size={16} />
         </Link>

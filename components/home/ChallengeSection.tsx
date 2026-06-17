@@ -38,7 +38,7 @@ export default function ChallengeSection() {
   return (
     <SectionWrapper className="bg-navy" id="challenge">
       {/* Section label */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center justify-center gap-3 mb-4">
         <div className="h-px w-8 bg-orange" />
         <span
           className="text-orange text-sm font-semibold tracking-widest uppercase"
@@ -48,7 +48,7 @@ export default function ChallengeSection() {
         </span>
       </div>
 
-      <div className="mb-14">
+      <div className="mb-14 text-center">
         <h2
           className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold leading-tight mb-4"
           style={{ fontFamily: "var(--font-montserrat)" }}
