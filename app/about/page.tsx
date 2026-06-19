@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import TeamCollage from "@/components/about/TeamCollage"
 
@@ -290,86 +289,6 @@ export default function AboutPage() {
       {/* ── Team Collage ─────────────────────────────────────────────────────── */}
       <TeamCollage />
 
-      {/* ── Partners ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 lg:py-14 bg-cream border-t border-navy/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <span
-              className="text-orange text-xs font-semibold tracking-widest uppercase"
-              style={{ fontFamily: "var(--font-jakarta)" }}
-            >
-              Our Partners
-            </span>
-            <h2
-              className="text-xl sm:text-2xl font-bold text-navy mt-2"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Built on Partnership
-            </h2>
-            <p
-              className="text-navy/60 text-sm mt-2 max-w-lg mx-auto"
-              style={{ fontFamily: "var(--font-nunito)" }}
-            >
-              Bridge2Charity was born through the community service initiative of Isomo Academy
-              and Bridge2Rwanda. We are grateful for the foundation they built.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-stretch justify-center gap-5">
-            {/* Isomo Academy */}
-            <a
-              href="https://www.isomo-rw.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 w-60"
-            >
-              <div className="flex-1 flex flex-col items-center justify-center gap-2 px-6 py-8 bg-white">
-                <Image
-                  src="https://www.isomo-rw.com/wp-content/uploads/2024/01/cropped-isomo_parent-logo.png"
-                  alt="Isomo Academy"
-                  width={140}
-                  height={50}
-                  className="object-contain h-12 w-auto"
-                  unoptimized
-                />
-                <p className="text-gray-400 text-xs text-center" style={{ fontFamily: "sans-serif" }}>
-                  An education program tackling literacy in Rwanda
-                </p>
-              </div>
-              <div className="flex items-center justify-between px-4 py-2.5" style={{ backgroundColor: "#4D4D4D" }}>
-                <span className="text-white text-xs font-semibold uppercase tracking-wide">Founding Partner</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-200"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </div>
-            </a>
-
-            {/* Bridge2Rwanda */}
-            <a
-              href="https://bridge2rwanda.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex flex-col rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 w-60"
-            >
-              <div className="flex-1 flex flex-col items-center justify-center gap-2 px-6 py-8" style={{ backgroundColor: "#111111" }}>
-                <Image
-                  src="https://www.bridge2rwanda.org/wp-content/uploads/2020/03/B2R_white-logo.png"
-                  alt="Bridge2Rwanda"
-                  width={160}
-                  height={50}
-                  className="object-contain h-12 w-auto"
-                  unoptimized
-                />
-                <p className="text-white/40 text-xs text-center" style={{ fontFamily: "sans-serif" }}>
-                  Building Leaders. Creating Opportunities.
-                </p>
-              </div>
-              <div className="flex items-center justify-between px-4 py-2.5" style={{ backgroundColor: "#6BBF40" }}>
-                <span className="text-white text-xs font-semibold uppercase tracking-wide">Founding Partner</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform duration-200"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="py-12 lg:py-14 bg-navy text-white text-center">

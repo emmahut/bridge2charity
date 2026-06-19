@@ -6,7 +6,7 @@ export default function TeamCollage() {
   const collageMembers = getCollageMembers()
 
   return (
-    <section className="bg-navy py-14 lg:py-20 overflow-hidden">
+    <section className="bg-navy py-8 lg:py-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
