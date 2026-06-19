@@ -289,6 +289,12 @@ export default function AboutPage() {
       {/* ── Team Collage ─────────────────────────────────────────────────────── */}
       <TeamCollage />
 
+      {/* Divider */}
+      <div className="bg-navy">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="border-t border-white/10" />
+        </div>
+      </div>
 
       {/* ── CTA ──────────────────────────────────────────────────────────────── */}
       <section className="py-12 lg:py-14 bg-navy text-white text-center">
@@ -305,17 +311,10 @@ export default function AboutPage() {
           >
             Whether you give, volunteer, or share our story — every action moves Rwanda forward.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/donate"
-              className="px-7 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Invest In B2C
-            </Link>
+          <div className="flex justify-center">
             <Link
               href="/volunteer"
-              className="px-7 py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg border border-white/20 transition-all duration-200 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

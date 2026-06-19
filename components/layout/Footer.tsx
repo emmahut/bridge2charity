@@ -128,15 +128,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8">
-              <Link
-                href="/donate"
-                className="inline-flex items-center px-6 py-3 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30"
-                style={{ fontFamily: "var(--font-montserrat)" }}
-              >
-                Invest In B2C
-              </Link>
-            </div>
           </div>
 
           {/* Contact info */}
@@ -194,8 +185,19 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Centered Invest In B2C CTA */}
+        <div className="mt-12 flex justify-center">
+          <Link
+            href="/donate"
+            className="inline-flex items-center px-8 py-3 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
+            style={{ fontFamily: "var(--font-montserrat)" }}
+          >
+            Invest In B2C
+          </Link>
+        </div>
+
         {/* Bottom bar */}
-        <div className="mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p
             className="text-white/50 text-sm text-center sm:text-left"
             style={{ fontFamily: "var(--font-nunito)" }}
