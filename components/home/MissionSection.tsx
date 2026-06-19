@@ -42,6 +42,17 @@ export default function MissionSection() {
         </span>
       </div>
 
+      {/* Intro paragraph */}
+      <p
+        className="text-navy/75 text-lg leading-relaxed max-w-3xl mb-12"
+        style={{ fontFamily: "var(--font-nunito)" }}
+      >
+        Bridge2Charity Foundation was not born in a boardroom. It was born in a community in the quiet
+        recognition that the children around us deserved more than what circumstance had given them,
+        and in the conviction that young people, when given structure and purpose, could be the ones
+        to change that.
+      </p>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         {/* Mission & Vision */}
         <div>
