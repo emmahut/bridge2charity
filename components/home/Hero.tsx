@@ -128,7 +128,7 @@ function AnimatedQuote() {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[82vh] flex items-center justify-center overflow-hidden">
       <Image
         src="/images/programs/eep-volunteer-selfie.jpg"
         alt="Bridge2Charity volunteers with students at EP Kirambo"
@@ -139,7 +139,6 @@ export default function Hero() {
       />
 
       <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/60 to-navy/40" />
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange via-olive to-orange" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
 
