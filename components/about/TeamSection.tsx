@@ -22,19 +22,19 @@ function MemberCard({ member }: { member: TeamMember }) {
     >
       {/* Circular photo — 160px min */}
       <div
-        className="w-40 h-40 rounded-full overflow-hidden mb-3 flex-shrink-0 flex items-center justify-center"
+        className="w-40 h-40 rounded-full overflow-hidden mb-3 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
         style={{ border: "2px solid #e0e0e0", background: "#f5f5f5" }}
       >
         {member.photo ? (
           <img
             src={member.photo}
             alt={member.name}
-            className="w-full h-full"
+            className="w-full h-full transition-transform duration-300 group-hover:scale-110"
             style={{ objectFit: "cover", objectPosition: "center top" }}
           />
         ) : (
           <span
-            className="text-2xl font-bold select-none"
+            className="text-2xl font-bold select-none transition-transform duration-300 group-hover:scale-110 inline-block"
             style={{ color: "#050a30", opacity: 0.25, fontFamily: "var(--font-montserrat)" }}
           >
             {member.initials}
