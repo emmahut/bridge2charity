@@ -18,9 +18,8 @@ const navLinks = [
   { label: "Programs", href: "/programs" },
   { label: "Impact", href: "/impact" },
   { label: "Scholars", href: "/scholars" },
-  { label: "Volunteer", href: "/volunteer" },
+  { label: "Get Involved", href: "/volunteer" },
   { label: "News", href: "/news" },
-  { label: "Contact", href: "/contact" },
 ]
 
 export default function Navigation() {
