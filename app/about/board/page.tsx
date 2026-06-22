@@ -28,14 +28,15 @@ export default function BoardPage() {
             >
               {/* Circular photo */}
               <div
-                className="w-40 h-40 rounded-full overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center"
+                className="w-40 h-40 rounded-full overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                 style={{ border: "2px solid #e0e0e0", background: "linear-gradient(135deg, #050a30 60%, #1a2050)" }}
               >
                 {member.photo ? (
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    style={{ objectPosition: "center top" }}
                   />
                 ) : (
                   <span
