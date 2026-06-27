@@ -45,7 +45,7 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P4",
-        photoUrl: "/images/scholars/cohort-1/theogen.jpg",
+        photoUrl: "/images/scholars/cohort-1/theogene.jpg",
         consentGiven: true,
       },
       {
@@ -55,7 +55,6 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P4",
-        photoUrl: "/images/scholars/cohort-1/desange.jpg",
         consentGiven: true,
       },
       {
@@ -85,7 +84,7 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P3",
-        photoUrl: "/images/scholars/cohort-1/placidia.jpg",
+        photoUrl: "/images/scholars/cohort-1/placidie.jpg",
         consentGiven: true,
       },
       {
@@ -95,7 +94,7 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P4",
-        photoUrl: "/images/scholars/cohort-1/marie-clere.jpg",
+        photoUrl: "/images/scholars/cohort-1/marie-claire.jpg",
         consentGiven: true,
       },
       {
@@ -105,7 +104,7 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P4",
-        photoUrl: "/images/scholars/cohort-1/josian.jpg",
+        photoUrl: "/images/scholars/cohort-1/josiane.jpg",
         consentGiven: true,
       },
       {
@@ -135,7 +134,7 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P3",
-        photoUrl: "/images/scholars/cohort-1/pieline.jpg",
+        photoUrl: "/images/scholars/cohort-1/pierrine.jpg",
         consentGiven: true,
       },
       {
@@ -145,7 +144,6 @@ export const scholarCohorts: ScholarCohort[] = [
         school: "EP Kirambo",
         hometown: "Burera",
         grade: "P4",
-        photoUrl: "/images/scholars/cohort-1/derrick.jpg",
         consentGiven: true,
       },
       {
