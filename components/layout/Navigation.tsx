@@ -22,7 +22,7 @@ const aboutDropdown = [
 ]
 
 const programsDropdown = [
-  { label: "Back to School", href: "/programs/back-to-school" },
+  { label: "Back To School", href: "/programs/back-to-school" },
   { label: "English Enhancement", href: "/programs/english-enhancement" },
   { label: "One Hen Per Child", href: "/programs/one-hen-per-child" },
 ]
