@@ -1,24 +1,56 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import Image from "next/image"
 import Link from "next/link"
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
+
+function subscribeReducedMotion(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {}
+  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY)
+  mediaQuery.addEventListener("change", onStoreChange)
+  return () => mediaQuery.removeEventListener("change", onStoreChange)
+}
+
+function getReducedMotionSnapshot() {
+  return typeof window !== "undefined" && window.matchMedia(REDUCED_MOTION_QUERY).matches
+}
+
+function getServerReducedMotionSnapshot() {
+  return false
+}
+
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getServerReducedMotionSnapshot
+  )
+}
 
 // ── Count-up hook ────────────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 2000, triggered = false) {
   const [count, setCount] = useState(0)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   useEffect(() => {
-    if (!triggered) return
+    if (!triggered || prefersReducedMotion) return
     const startTime = performance.now()
+    let frameId: number
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * target))
-      if (progress < 1) requestAnimationFrame(step)
+      if (progress < 1) frameId = requestAnimationFrame(step)
       else setCount(target)
     }
-    requestAnimationFrame(step)
-  }, [target, duration, triggered])
+    frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [target, duration, triggered, prefersReducedMotion])
+
+  if (!triggered) return 0
+  if (prefersReducedMotion) return target
   return count
 }
 
@@ -102,10 +134,11 @@ export default function BackToSchoolPage() {
       <section className="relative min-h-[70vh] flex items-center justify-center bg-navy overflow-hidden">
         <Image
           src="/images/programs/bts-hero.jpg"
-          alt="Back to School Program"
+          alt="Students in Rwanda participating in the Back to School Program"
           fill
           className="object-cover object-center"
           priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-28 max-w-3xl mx-auto">
@@ -136,6 +169,7 @@ export default function BackToSchoolPage() {
                 alt="Bridge2Charity programs"
                 fill
                 className="object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
 
@@ -208,6 +242,7 @@ export default function BackToSchoolPage() {
                 alt="Bridge2Charity students in Burera"
                 fill
                 className="object-cover object-center"
+                sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
 
@@ -335,7 +370,7 @@ export default function BackToSchoolPage() {
             className="text-white/60 text-base leading-relaxed mb-8"
             style={{ fontFamily: "var(--font-nunito)" }}
           >
-            Every contribution helps us cover another child's school fees, provide their books,
+            Every contribution helps us cover another child&apos;s school fees, provide their books,
             and make sure they show up tomorrow — and every day after that.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

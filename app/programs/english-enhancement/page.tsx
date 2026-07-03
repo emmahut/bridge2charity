@@ -61,7 +61,7 @@ export default function EnglishEnhancementPage() {
       <section className="relative min-h-[65vh] flex items-end bg-navy overflow-hidden">
         <Image
           src="/images/programs/eep-hero.jpg"
-          alt="English Enhancement Program"
+          alt="Students in Rwanda participating in the English Enhancement Program"
           fill
           className="object-cover object-center"
           priority

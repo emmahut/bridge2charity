@@ -2,8 +2,11 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import Image from "next/image"
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion"
+import { Mail, ArrowRight, User } from "lucide-react"
 import { getActiveTeamMembers } from "@/data/team"
+import type { Variants } from "framer-motion"
 import type { TeamMember, TeamCategory } from "@/types/team"
 
 const tabs: { label: string; value: TeamCategory | "all" }[] = [
@@ -14,60 +17,93 @@ const tabs: { label: string; value: TeamCategory | "all" }[] = [
   { label: "Support & Operations", value: "operations" },
 ]
 
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+}
+
+const BIO_TRUNCATE_LENGTH = 100
+
+function truncate(str: string, length: number) {
+  if (str.length <= length) return str
+  return str.substring(0, length) + "..."
+}
+
 function MemberCard({ member }: { member: TeamMember }) {
   return (
-    <Link
-      href={`/team/${member.slug}`}
-      className="group flex flex-col items-center text-center w-[200px] hover:-translate-y-1 transition-transform duration-300"
+    <div
+      className="group flex flex-col bg-white rounded-2xl shadow-lg border border-gray-200/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full overflow-hidden"
     >
-      {/* Circular photo — 200px */}
-      <div
-        className="rounded-full overflow-hidden mb-3 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
-        style={{ width: "200px", height: "200px", border: "2px solid #e0e0e0", background: "#f5f5f5" }}
-      >
+      <div className="w-full pt-[100%] relative">
         {member.photo ? (
-          <img
+          <Image
             src={member.photo}
             alt={member.name}
-            className="transition-transform duration-300 group-hover:scale-110"
-            style={{
-              width: "200px",
-              height: "200px",
-              borderRadius: "50%",
-              objectFit: "cover",
-              objectPosition: "center top",
-              display: "block",
-              margin: "0 auto",
-            }}
+            fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+            className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         ) : (
-          <span
-            className="text-2xl font-bold select-none transition-transform duration-300 group-hover:scale-110 inline-block"
-            style={{ color: "#050a30", opacity: 0.25, fontFamily: "var(--font-montserrat)" }}
-          >
-            {member.initials}
-          </span>
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+            <User className="w-16 h-16 text-gray-400" />
+          </div>
         )}
       </div>
 
-      <p
-        className="text-navy font-bold text-sm leading-tight group-hover:text-orange transition-colors duration-200 px-1"
-        style={{ fontFamily: "var(--font-jakarta)" }}
-      >
-        {member.name}
-      </p>
-      <p
-        className="text-navy/50 text-xs mt-0.5 leading-tight px-1"
-        style={{ fontFamily: "var(--font-dm-sans)" }}
-      >
-        {member.role}
-      </p>
-    </Link>
+      <div className="p-6 flex-grow flex flex-col">
+        <div>
+          <h3
+            className="text-xl font-bold text-navy leading-tight"
+            style={{ fontFamily: "var(--font-jakarta)" }}
+          >
+            {member.name}
+          </h3>
+          <p
+            className="text-orange text-sm font-semibold mt-1"
+            style={{ fontFamily: "var(--font-dm-sans)" }}
+          >
+            {member.role}
+          </p>
+          <p className="text-slate-600 text-sm mt-3 leading-relaxed">
+            {truncate(member.bio, BIO_TRUNCATE_LENGTH)}
+          </p>
+        </div>
+
+        <div className="mt-auto pt-4 flex items-center justify-between w-full">
+          {member.email && (
+            <a
+              href={`mailto:${member.email}`}
+              className="text-slate-500 hover:text-orange transition-colors duration-200"
+              aria-label={`Email ${member.name}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Mail className="w-5 h-5" />
+            </a>
+          )}
+          <Link
+            href={`/team/${member.slug}`}
+            className="flex items-center text-sm font-bold text-navy group-hover:text-orange transition-colors duration-200"
+            aria-label={`View profile for ${member.name}`}
+          >
+            View Profile
+            <ArrowRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }
 
 export default function TeamSection() {
   const [activeTab, setActiveTab] = useState<TeamCategory | "all">("all")
+  const prefersReducedMotion = useReducedMotion()
 
   const allActive = getActiveTeamMembers()
   const filtered =
@@ -76,27 +112,34 @@ export default function TeamSection() {
       : allActive.filter((m) => m.category === activeTab)
 
   return (
-    <section className="py-12 lg:py-16 bg-cream">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Heading */}
+    <section className="bg-gray-50">
+      {/* Hero Section */}
+      <div className="text-center py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-navy">
         <h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold text-navy text-center mb-10"
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
           Meet Our Team
         </h1>
+        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+          We are a passionate team of young civic leaders dedicated to creating lasting change in Rwandan communities through education and sustainable development.
+        </p>
+        <div className="mt-8 h-1.5 w-24 bg-orange mx-auto rounded-full" />
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
         {/* Filter tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 mb-14">
           {tabs.map((tab) => (
             <button
+              type="button"
               key={tab.value}
               onClick={() => setActiveTab(tab.value)}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
+              aria-pressed={activeTab === tab.value}
+              className={`px-6 py-3 rounded-full text-base font-bold transition-all duration-300 ease-in-out ${
                 activeTab === tab.value
-                  ? "bg-navy text-white shadow-md shadow-navy/20"
-                  : "bg-white text-navy/60 hover:text-navy border border-navy/10 hover:border-navy/30"
+                  ? "bg-orange text-white shadow-lg shadow-orange/30"
+                  : "bg-white text-navy/80 hover:bg-gray-100 border border-gray-200/80 shadow-sm"
               }`}
               style={{ fontFamily: "var(--font-jakarta)" }}
             >
@@ -105,22 +148,30 @@ export default function TeamSection() {
           ))}
         </div>
 
-        {/* Team grid — fades when tab changes */}
+        {/* Team grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="flex flex-wrap justify-center gap-x-[30px] gap-y-10"
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={prefersReducedMotion ? undefined : { opacity: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-10"
           >
-            {filtered.map((member) => (
-              <MemberCard key={member.id} member={member} />
+            {filtered.map((member, i) => (
+              <motion.div
+                key={member.id}
+                variants={prefersReducedMotion ? undefined : cardVariants}
+                initial={prefersReducedMotion ? false : "hidden"}
+                animate={prefersReducedMotion ? { opacity: 1 } : "visible"}
+                custom={i}
+                transition={{ delay: prefersReducedMotion ? 0 : i * 0.1, ease: "easeInOut" }}
+              >
+                <MemberCard member={member} />
+              </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
-
       </div>
     </section>
   )

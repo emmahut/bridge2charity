@@ -18,7 +18,7 @@ export default function Cohort1Page() {
       <div className="relative w-full" style={{ height: "300px" }}>
         <Image
           src="/images/scholars/cohort-1/cover.jpg"
-          alt="Cohort 1 — Burera Scholars"
+          alt="A group photo of the Cohort 1 scholars from Burera District"
           fill
           className="object-cover object-center"
           priority

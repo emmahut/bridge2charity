@@ -1,24 +1,56 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import Image from "next/image"
 import Link from "next/link"
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
+
+function subscribeReducedMotion(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {}
+  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY)
+  mediaQuery.addEventListener("change", onStoreChange)
+  return () => mediaQuery.removeEventListener("change", onStoreChange)
+}
+
+function getReducedMotionSnapshot() {
+  return typeof window !== "undefined" && window.matchMedia(REDUCED_MOTION_QUERY).matches
+}
+
+function getServerReducedMotionSnapshot() {
+  return false
+}
+
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getServerReducedMotionSnapshot
+  )
+}
 
 // ── Count-up hook ────────────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 2000, triggered = false) {
   const [count, setCount] = useState(0)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   useEffect(() => {
-    if (!triggered) return
+    if (!triggered || prefersReducedMotion) return
     const startTime = performance.now()
+    let frameId: number
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * target))
-      if (progress < 1) requestAnimationFrame(step)
+      if (progress < 1) frameId = requestAnimationFrame(step)
       else setCount(target)
     }
-    requestAnimationFrame(step)
-  }, [target, duration, triggered])
+    frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [target, duration, triggered, prefersReducedMotion])
+
+  if (!triggered) return 0
+  if (prefersReducedMotion) return target
   return count
 }
 
@@ -31,9 +63,12 @@ function GalleryPhoto({ n }: { n: number }) {
       style={{ backgroundColor: "rgba(5,10,48,0.07)" }}
     >
       {!failed ? (
-        <img
+        <Image
           src={`/images/programs/ohpc-gallery-${n}.jpg`}
           alt={`One Hen Per Child — photo ${n}`}
+          width={208}
+          height={160}
+          sizes="208px"
           className="w-full h-full object-cover"
           onError={() => setFailed(true)}
         />
@@ -139,7 +174,7 @@ export default function OneHenPerChildPage() {
       <section className="relative min-h-[65vh] flex items-center justify-center bg-navy overflow-hidden">
         <Image
           src="/images/programs/ohpc-hero.jpg"
-          alt="One Hen Per Child Program"
+          alt="A child in Rwanda participating in the One Hen Per Child program"
           fill
           className="object-cover object-center"
           priority

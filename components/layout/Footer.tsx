@@ -8,12 +8,11 @@ const quickLinks = [
   { label: "News", href: "/news" },
   { label: "Programs", href: "/programs" },
   { label: "Contact", href: "/contact" },
-  { label: "Impact", href: "/impact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Impact", href: "/#impact" },
 ]
 
 const programs = [
-  { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
+  { label: "English Enhancement Program", href: "/programs/english-enhancement" },
   { label: "Back to School", href: "/programs/back-to-school" },
   { label: "One Hen Per Child", href: "/programs/one-hen-per-child" },
 ]

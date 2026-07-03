@@ -2,7 +2,7 @@ import type { Program } from "@/types/program"
 
 export const programs: Program[] = [
   {
-    slug: "english-enhancement-program",
+    slug: "english-enhancement",
     title: "English Enhancement Program",
     shortDescription:
       "Strengthening English literacy, communication, and critical thinking for primary students at EP Kirambo.",

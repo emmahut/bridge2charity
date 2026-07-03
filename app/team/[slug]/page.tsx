@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { teamMembers, boardMembers, getActiveTeamMembers } from "@/data/team"
 
@@ -74,13 +75,15 @@ export default async function TeamMemberPage({ params }: Props) {
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             {/* Circular photo */}
             <div
-              className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 flex-shrink-0 flex items-center justify-center"
+              className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 flex-shrink-0 flex items-center justify-center"
               style={{ border: "2px solid #e0e0e0", background: "linear-gradient(135deg, #0d1240 60%, #1a2050)" }}
             >
               {photo ? (
-                <img
+                <Image
                   src={photo}
-                  alt={name}
+                  alt={`Photo of ${name}`}
+                  fill
+                  sizes="(min-width: 640px) 208px, 176px"
                   className="w-full h-full object-cover"
                 />
               ) : (

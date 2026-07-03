@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { boardMembers } from "@/data/team"
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function BoardPage() {
             >
               {/* Circular photo */}
               <div
-                className="rounded-full overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                className="relative rounded-full overflow-hidden mb-4 flex-shrink-0 flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                 style={{
                   width: "200px",
                   height: "200px",
@@ -37,17 +38,14 @@ export default function BoardPage() {
                 }}
               >
                 {member.photo ? (
-                  <img
+                  <Image
                     src={member.photo}
-                    alt={member.name}
+                    alt={`Photo of ${member.name}`}
+                    fill
+                    sizes="200px"
                     style={{
-                      width: "200px",
-                      height: "200px",
-                      borderRadius: "50%",
                       objectFit: "cover",
                       objectPosition: "center top",
-                      display: "block",
-                      margin: "0 auto",
                     }}
                     className="transition-transform duration-300 group-hover:scale-110"
                   />
