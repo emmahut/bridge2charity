@@ -63,7 +63,7 @@ function AnimatedHeadline() {
         {" "}
         {/* Rwanda’s */}
         <span className="inline-block overflow-hidden align-bottom pb-1">
-          <motion.span variants={wordVariants} className="inline-block text-orange">
+          <motion.span variants={wordVariants} className="inline-block text-orange-light">
             Rwanda&apos;s
           </motion.span>
         </span>
@@ -91,7 +91,7 @@ function AnimatedHeadline() {
           >
             <path
               d="M 3 5 C 35 2, 85 9, 140 5 C 195 1, 255 10, 310 5 C 348 1, 375 8, 397 5"
-              stroke="#C9601C"
+              stroke="var(--color-orange-light)"
               strokeWidth="4"
               fill="none"
               strokeLinecap="round"
@@ -99,7 +99,7 @@ function AnimatedHeadline() {
             />
             <path
               d="M 6 10 C 55 7, 110 12, 170 9 C 230 5, 280 12, 335 8 C 362 6, 385 11, 397 9"
-              stroke="#C9601C"
+              stroke="var(--color-orange-light)"
               strokeWidth="2.5"
               fill="none"
               strokeLinecap="round"
@@ -110,7 +110,7 @@ function AnimatedHeadline() {
         </span>
       </motion.h1>
       <motion.span
-        className="mx-auto mt-3 block h-[3px] max-w-xl rounded-sm bg-orange"
+        className="mx-auto mt-3 block h-[3px] max-w-xl rounded-sm bg-orange-light"
         initial={{ width: "0%" }}
         animate={inView || prefersReducedMotion ? { width: "100%" } : { width: "0%" }}
         transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: prefersReducedMotion ? 0 : 0.8, ease: "easeOut" }}
@@ -161,7 +161,7 @@ export default function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/50 to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-light/50 to-transparent"
       />
 
       <div
@@ -180,10 +180,10 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 text-center text-white sm:px-6 lg:px-8">
 
-        <div className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-orange/40 bg-orange/20 px-4 py-2 backdrop-blur-sm">
-          <span className="h-2 w-2 shrink-0 rounded-full bg-orange" />
+        <div className="mb-7 inline-flex max-w-full items-center gap-2 rounded-full border border-orange-light/40 bg-orange-light/20 px-4 py-2 backdrop-blur-sm">
+          <span className="h-2 w-2 shrink-0 rounded-full bg-orange-light" />
           <span
-            className="truncate text-xs font-semibold uppercase tracking-wide text-orange sm:text-sm"
+            className="truncate text-xs font-semibold uppercase tracking-wide text-orange-light sm:text-sm"
             style={{ fontFamily: "var(--font-jakarta)" }}
           >
             Education. Nutrition. Community.
@@ -216,7 +216,7 @@ export default function Hero() {
                 key={stat.label}
                 className="flex items-center gap-4 border-b border-white/10 px-5 py-4 last:border-b-0 sm:border-b-0 sm:border-r sm:last:border-r-0"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-orange/15 text-orange">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-orange-light/15 text-orange-light">
                   <Icon size={21} aria-hidden="true" />
                 </span>
                 <span className="min-w-0">

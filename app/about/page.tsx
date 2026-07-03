@@ -4,7 +4,7 @@ import Image from "next/image"
 import TeamCollage from "@/components/about/TeamCollage"
 
 export const metadata: Metadata = {
-  title: "About Us — Bridge2Charity Foundation",
+  title: "About Us",
   description:
     "Learn about Bridge2Charity Foundation's story, mission, team, and the civic leaders driving change in Rwanda.",
 }
@@ -58,13 +58,13 @@ export default function AboutPage() {
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange via-olive to-transparent" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-light via-olive to-transparent" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-28">
           <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-8 bg-orange" />
+            <div className="h-px w-8 bg-orange-light" />
             <span
-              className="text-orange text-xs font-semibold tracking-widest uppercase"
+              className="text-orange-light text-xs font-semibold tracking-widest uppercase"
               style={{ fontFamily: "var(--font-jakarta)" }}
             >
               About Bridge2Charity
@@ -75,7 +75,7 @@ export default function AboutPage() {
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Rwanda Will be Built by{" "}
-            <span className="text-orange">Rwandan Youth</span>{" "}
+            <span className="text-orange-light">Rwandan Youth</span>{" "}
             for Rwandans.
           </h1>
           <p
@@ -133,16 +133,13 @@ export default function AboutPage() {
 
             {/* Video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
-                style={{ background: "#f7f7f7" }}
-              >
+              <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 bg-cream">
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
-                <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
+                <p className="text-navy/55 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   B2C origin video coming soon
                 </p>
               </div>
@@ -266,16 +263,13 @@ export default function AboutPage() {
 
             {/* NST video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
-                style={{ background: "#f7f7f7" }}
-              >
+              <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 bg-cream">
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
-                <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
+                <p className="text-navy/55 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   Rwanda NST video coming soon
                 </p>
               </div>
@@ -309,7 +303,7 @@ export default function AboutPage() {
           <div className="flex justify-center">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

@@ -37,10 +37,10 @@ function StatCard({ stat, triggered }: { stat: typeof impactStats[0]; triggered:
   return (
     <div className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07]">
       <div className="relative mb-4 inline-flex items-center justify-center">
-        <div className="h-24 w-24 rounded-full bg-orange/10 transition-colors duration-300 group-hover:bg-orange/20" />
+        <div className="h-24 w-24 rounded-full bg-orange-light/10 transition-colors duration-300 group-hover:bg-orange-light/20" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span
-            className="text-3xl font-bold text-orange"
+            className="text-3xl font-bold text-orange-light"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             {count}
@@ -89,9 +89,9 @@ export default function ImpactNumbers() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="mb-4 flex items-center justify-center gap-3">
-          <div className="h-px w-8 bg-orange" />
+          <div className="h-px w-8 bg-orange-light" />
           <span
-            className="text-sm font-semibold uppercase tracking-widest text-orange"
+            className="text-sm font-semibold uppercase tracking-widest text-orange-light"
             style={{ fontFamily: "var(--font-jakarta)" }}
           >
             Our Impact

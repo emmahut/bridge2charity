@@ -4,7 +4,7 @@ import Image from "next/image"
 import { boardMembers } from "@/data/team"
 
 export const metadata: Metadata = {
-  title: "Board of Directors — Bridge2Charity Foundation",
+  title: "Board of Directors",
   description: "Meet the Board of Directors of Bridge2Charity Foundation.",
 }
 
@@ -33,8 +33,8 @@ export default function BoardPage() {
                 style={{
                   width: "200px",
                   height: "200px",
-                  border: "2px solid #e0e0e0",
-                  background: "#f5f5f5",
+                  border: "2px solid rgba(5,10,48,0.14)",
+                  background: "var(--color-cream)",
                 }}
               >
                 {member.photo ? (
@@ -52,7 +52,7 @@ export default function BoardPage() {
                 ) : (
                   <span
                     className="text-4xl font-bold select-none"
-                    style={{ color: "#050a30", opacity: 0.25, fontFamily: "var(--font-montserrat)" }}
+                    style={{ color: "var(--color-navy)", opacity: 0.25, fontFamily: "var(--font-montserrat)" }}
                   >
                     {member.initials}
                   </span>

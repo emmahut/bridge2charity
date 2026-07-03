@@ -103,7 +103,7 @@ export default function MissionSection() {
 
             <div className="mt-5 border-l-4 border-navy bg-navy px-6 py-5 text-white shadow-soft-sm">
               <span
-                className="text-xs font-bold uppercase tracking-[0.22em] text-orange"
+                className="text-xs font-bold uppercase tracking-[0.22em] text-orange-light"
                 style={{ fontFamily: "var(--font-jakarta)" }}
               >
                 Field principle

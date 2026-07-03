@@ -8,8 +8,9 @@
   --color-navy-100:     #e0e3ef;
   --color-olive:        #4f6815;
   --color-olive-light:  #6a8c1e;
-  --color-orange:       #f16927;
-  --color-orange-light: #f48a52;
+  --color-orange:       #bd4617;
+  --color-orange-light: #f16927;
+  --color-orange-dark:  #8f2f10;
   --color-maroon:       #75070c;
   --color-maroon-light: #9e0d14;
   --color-cream:        #FBF6F0;
@@ -34,8 +35,8 @@ html {
   z-index: 100;
   transform: translateY(-150%);
   border-radius: 0.5rem;
-  background: #050a30;
-  color: #ffffff;
+  background: var(--color-navy);
+  color: #fff;
   font-family: var(--font-jakarta), 'Helvetica Neue', sans-serif;
   font-weight: 700;
   padding: 0.75rem 1rem;
@@ -67,8 +68,8 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  color: #050a30;
+  background-color: #fff;
+  color: var(--color-navy);
   font-family: var(--font-nunito), Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,7 +84,7 @@ h3, h4 {
 }
 
 *:focus-visible {
-  outline: 2px solid #f16927;
+  outline: 2px solid var(--color-orange);
   outline-offset: 2px;
 }
 

@@ -4,7 +4,7 @@ import { scholarCohorts } from "@/data/scholars"
 import CohortGallery from "./CohortGallery"
 
 export const metadata: Metadata = {
-  title: "Cohort 1 Scholars — Bridge2Charity Foundation",
+  title: "Cohort 1 Scholars",
   description: "Meet the Cohort 1 scholars supported by Bridge2Charity's Back to School Program in Burera District.",
 }
 

@@ -7,9 +7,9 @@ const challenges = [
     title: "The Education Gap",
     description:
       "Financial barriers, language gaps, and under-resourced classrooms leave thousands of children behind — not for lack of ability, but for lack of support.",
-    statColor: "text-orange",
-    borderColor: "border-orange/20 hover:border-orange/40",
-    iconColor: "bg-orange/10 text-orange",
+    statColor: "text-orange-light",
+    borderColor: "border-orange-light/20 hover:border-orange-light/40",
+    iconColor: "bg-orange-light/10 text-orange-light",
   },
   {
     icon: Apple,
@@ -39,9 +39,9 @@ export default function ChallengeSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="mb-4 flex items-center justify-center gap-3">
-          <div className="h-px w-8 bg-orange" />
+          <div className="h-px w-8 bg-orange-light" />
           <span
-            className="text-sm font-semibold uppercase tracking-widest text-orange"
+            className="text-sm font-semibold uppercase tracking-widest text-orange-light"
             style={{ fontFamily: "var(--font-jakarta)" }}
           >
             The Reality

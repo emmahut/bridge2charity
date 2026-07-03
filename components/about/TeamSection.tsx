@@ -39,7 +39,7 @@ function truncate(str: string, length: number) {
 function MemberCard({ member }: { member: TeamMember }) {
   return (
     <div
-      className="group flex flex-col bg-white rounded-2xl shadow-lg border border-gray-200/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full overflow-hidden"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-navy/8 bg-white shadow-soft-sm transition-all duration-300 hover:-translate-y-2 hover:border-orange/20 hover:shadow-xl hover:shadow-navy/10"
     >
       <div className="w-full pt-[100%] relative">
         {member.photo ? (
@@ -51,8 +51,8 @@ function MemberCard({ member }: { member: TeamMember }) {
             className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
           />
         ) : (
-          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
-            <User className="w-16 h-16 text-gray-400" />
+          <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gradient-to-br from-cream to-navy-50">
+            <User className="w-16 h-16 text-navy/32" />
           </div>
         )}
       </div>
@@ -71,7 +71,7 @@ function MemberCard({ member }: { member: TeamMember }) {
           >
             {member.role}
           </p>
-          <p className="text-slate-600 text-sm mt-3 leading-relaxed">
+          <p className="text-navy/68 text-sm mt-3 leading-relaxed">
             {truncate(member.bio, BIO_TRUNCATE_LENGTH)}
           </p>
         </div>
@@ -80,7 +80,7 @@ function MemberCard({ member }: { member: TeamMember }) {
           {member.email && (
             <a
               href={`mailto:${member.email}`}
-              className="text-slate-500 hover:text-orange transition-colors duration-200"
+              className="text-navy/45 hover:text-orange transition-colors duration-200"
               aria-label={`Email ${member.name}`}
               onClick={(e) => e.stopPropagation()}
             >
@@ -112,7 +112,7 @@ export default function TeamSection() {
       : allActive.filter((m) => m.category === activeTab)
 
   return (
-    <section className="bg-gray-50">
+    <section className="bg-cream">
       {/* Hero Section */}
       <div className="text-center py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-navy">
         <h1
@@ -121,10 +121,10 @@ export default function TeamSection() {
         >
           Meet Our Team
         </h1>
-        <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-300">
+        <p className="mt-4 max-w-3xl mx-auto text-lg text-white/70">
           We are a passionate team of young civic leaders dedicated to creating lasting change in Rwandan communities through education and sustainable development.
         </p>
-        <div className="mt-8 h-1.5 w-24 bg-orange mx-auto rounded-full" />
+        <div className="mt-8 h-1.5 w-24 bg-orange-light mx-auto rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
@@ -139,7 +139,7 @@ export default function TeamSection() {
               className={`px-6 py-3 rounded-full text-base font-bold transition-all duration-300 ease-in-out ${
                 activeTab === tab.value
                   ? "bg-orange text-white shadow-lg shadow-orange/30"
-                  : "bg-white text-navy/80 hover:bg-gray-100 border border-gray-200/80 shadow-sm"
+                  : "bg-white text-navy/80 hover:bg-navy-50 border border-navy/10 shadow-sm"
               }`}
               style={{ fontFamily: "var(--font-jakarta)" }}
             >

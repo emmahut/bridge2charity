@@ -57,8 +57,8 @@ export default function NotFound() {
 
         <div className="relative mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/15 px-4 py-2 text-orange backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-orange" />
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-orange-light/40 bg-orange-light/15 px-4 py-2 text-orange-light backdrop-blur-sm">
+              <span className="h-2 w-2 rounded-full bg-orange-light" />
               <span
                 className="text-xs font-bold uppercase tracking-wide sm:text-sm"
                 style={{ fontFamily: "var(--font-jakarta)" }}
@@ -85,7 +85,7 @@ export default function NotFound() {
             <div className="mt-8 flex w-full max-w-xl flex-col gap-3 sm:flex-row">
               <Link
                 href="/"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-orange px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-orange/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-orange/30"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-lg bg-orange px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-orange/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-dark hover:shadow-orange/30"
                 style={{ fontFamily: "var(--font-jakarta)" }}
               >
                 Go Home
@@ -110,7 +110,7 @@ export default function NotFound() {
                   href={link.href}
                   className="group rounded-lg border border-white/10 bg-white/[0.07] p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange/35 hover:bg-white/[0.1]"
                 >
-                  <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-orange/15 text-orange transition-colors duration-200 group-hover:bg-orange/25">
+                  <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-orange-light/15 text-orange-light transition-colors duration-200 group-hover:bg-orange-light/25">
                     <Icon size={20} aria-hidden="true" />
                   </span>
                   <span

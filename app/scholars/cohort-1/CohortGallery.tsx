@@ -42,7 +42,7 @@ export default function CohortGallery({ students }: { students: Scholar[] }) {
                     style={{
                       width: "160px",
                       height: "160px",
-                      border: "2px solid #d0d0d0",
+                      border: "2px solid rgba(5,10,48,0.14)",
                       flexShrink: 0,
                     }}
                   >
@@ -58,7 +58,7 @@ export default function CohortGallery({ students }: { students: Scholar[] }) {
                     ) : (
                       <div
                         className="w-full h-full rounded-full flex items-center justify-center"
-                        style={{ backgroundColor: "#050a30" }}
+                        style={{ backgroundColor: "var(--color-navy)" }}
                       >
                         <span
                           className="font-bold select-none font-montserrat"
@@ -131,10 +131,10 @@ export default function CohortGallery({ students }: { students: Scholar[] }) {
               ref={closeButtonRef}
               type="button"
               onClick={() => setZoomed(null)}
-              className="absolute -top-4 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-xl z-10"
+              className="absolute -top-4 -right-2 w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-cream transition-colors shadow-xl z-10"
               aria-label="Close"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>

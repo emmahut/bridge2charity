@@ -134,11 +134,11 @@ function StatCard({ value, label, suffix, triggered }: {
   return (
     <div
       className="flex flex-col items-center justify-center text-center rounded-2xl py-8 px-6"
-      style={{ backgroundColor: "#FBF6F0" }}
+      style={{ backgroundColor: "var(--color-cream)" }}
     >
       <p
         className="text-5xl font-bold leading-none mb-2"
-        style={{ color: "#F16927", fontFamily: "var(--font-montserrat)" }}
+        style={{ color: "var(--color-orange)", fontFamily: "var(--font-montserrat)" }}
       >
         {count}{suffix}
       </p>
@@ -186,7 +186,7 @@ export default function OneHenPerChildPage() {
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             A well-fed child is a child{" "}
-            <span className="text-orange">ready to learn.</span>
+            <span className="text-orange-light">ready to learn.</span>
           </h1>
         </div>
       </section>
@@ -272,7 +272,7 @@ export default function OneHenPerChildPage() {
                 <div className="flex flex-col items-center">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 z-10"
-                    style={{ backgroundColor: "#050a30" }}
+                    style={{ backgroundColor: "var(--color-navy)" }}
                   >
                     <span
                       className="text-white text-lg font-bold"
@@ -282,13 +282,10 @@ export default function OneHenPerChildPage() {
                     </span>
                   </div>
                   {i < steps.length - 1 && (
-                    <div
-                      className="w-0.5 flex-1 mt-2 mb-0"
-                      style={{ backgroundColor: "#f16927", minHeight: "48px" }}
-                    />
+                    <div className="w-0.5 flex-1 mt-2 mb-0 bg-orange" style={{ minHeight: "48px" }} />
                   )}
                 </div>
-                <div className={`flex-1 bg-gray-50 rounded-2xl px-7 py-6 ${i < steps.length - 1 ? "mb-4" : ""}`}>
+                <div className={`flex-1 bg-cream rounded-2xl px-7 py-6 ${i < steps.length - 1 ? "mb-4" : ""}`}>
                   <h3
                     className="text-navy font-bold text-base mb-2"
                     style={{ fontFamily: "var(--font-jakarta)" }}
@@ -377,7 +374,7 @@ export default function OneHenPerChildPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

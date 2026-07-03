@@ -124,7 +124,7 @@ export default function Navigation() {
               </span>
               <span className="hidden min-w-0 flex-col leading-none sm:flex">
                 <span
-                  className="text-base font-extrabold tracking-[0.01em] text-white transition-colors duration-200 group-hover:text-orange"
+                  className="text-base font-extrabold tracking-[0.01em] text-white transition-colors duration-200 group-hover:text-orange-light"
                   style={{ fontFamily: "var(--font-montserrat)" }}
                 >
                   Bridge2Charity
@@ -188,7 +188,7 @@ export default function Navigation() {
                             href={sub.href}
                             style={{ fontFamily: "var(--font-jakarta)" }}
                             onClick={() => setOpenDropdown(null)}
-                            className="flex min-h-11 items-center border-b border-white/5 px-4 py-3 text-sm font-medium text-white/80 transition-colors duration-150 last:border-0 hover:bg-orange/20 hover:text-white"
+                            className="flex min-h-11 items-center border-b border-white/5 px-4 py-3 text-sm font-medium text-white/80 transition-colors duration-150 last:border-0 hover:bg-orange-light/20 hover:text-white"
                           >
                             {sub.label}
                           </Link>
@@ -220,7 +220,7 @@ export default function Navigation() {
               <Link
                 href="/donate"
                 style={{ fontFamily: "var(--font-montserrat)" }}
-                className="hidden min-h-11 items-center gap-2 rounded-lg bg-orange px-5 py-2 text-sm font-bold text-white shadow-lg shadow-orange/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-light hover:shadow-orange/30 sm:inline-flex"
+                className="hidden min-h-11 items-center gap-2 rounded-lg bg-orange px-5 py-2 text-sm font-bold text-white shadow-lg shadow-orange/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-dark hover:shadow-orange/30 sm:inline-flex"
               >
                 <HeartHandshake size={16} aria-hidden="true" />
                 Donate
@@ -313,7 +313,7 @@ export default function Navigation() {
                     aria-expanded={mobileOpen}
                     aria-controls={`mobile-${link.dropdownKey}-dropdown`}
                     className={`flex min-h-12 w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold transition-colors duration-200 ${
-                      active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
+                      active ? "bg-orange-light/20 text-orange-light" : "text-white/90 hover:bg-white/10 hover:text-white"
                     }`}
                     style={{ fontFamily: "var(--font-jakarta)" }}
                   >
@@ -324,7 +324,7 @@ export default function Navigation() {
                     />
                   </button>
                   {mobileOpen && (
-                    <div id={`mobile-${link.dropdownKey}-dropdown`} className="ml-4 mt-1 space-y-1 border-l-2 border-orange/30 pl-3">
+                    <div id={`mobile-${link.dropdownKey}-dropdown`} className="ml-4 mt-1 space-y-1 border-l-2 border-orange-light/30 pl-3">
                       {link.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
@@ -348,7 +348,7 @@ export default function Navigation() {
                 href={link.href}
                 onClick={closeMobileMenu}
                 className={`flex min-h-12 items-center rounded-lg px-4 py-3 text-base font-semibold transition-colors duration-200 ${
-                  active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
+                  active ? "bg-orange-light/20 text-orange-light" : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
                 style={{ fontFamily: "var(--font-jakarta)" }}
               >
@@ -364,7 +364,7 @@ export default function Navigation() {
             href="/donate"
             onClick={closeMobileMenu}
             style={{ fontFamily: "var(--font-montserrat)" }}
-            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange py-3 font-bold text-white transition-colors duration-200 hover:bg-orange-light"
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange py-3 font-bold text-white transition-colors duration-200 hover:bg-orange-dark"
           >
             <HeartHandshake size={17} aria-hidden="true" />
             Donate

@@ -13,11 +13,11 @@ export default function VolunteerCTA() {
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/88 to-navy/70" />
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange/30 to-transparent" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-light/30 to-transparent" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-lg bg-orange/15">
-          <Heart size={28} className="text-orange" />
+        <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-lg bg-orange-light/15">
+          <Heart size={28} className="text-orange-light" />
         </div>
 
         <h2
