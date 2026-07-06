@@ -23,21 +23,21 @@ export default function Button({
   disabled = false,
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-jakarta font-bold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+    "inline-flex items-center justify-center font-lato font-bold rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-orange"
 
   const sizes = {
-    sm: "min-h-10 px-4 py-2 text-sm",
-    md: "min-h-11 px-6 py-3 text-sm",
-    lg: "min-h-12 px-7 py-3.5 text-base",
+    sm: "px-4 py-2 text-sm",
+    md: "px-6 py-3 text-sm",
+    lg: "px-8 py-4 text-base",
   }
 
   const variants = {
     primary:
-      "bg-orange text-white shadow-lg shadow-orange/20 hover:-translate-y-0.5 hover:bg-orange-dark hover:shadow-orange/30 active:translate-y-0",
+      "bg-orange text-white hover:bg-orange-light hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:translate-y-0",
     secondary:
-      "bg-navy text-white shadow-lg shadow-navy/20 hover:-translate-y-0.5 hover:bg-navy-light hover:shadow-navy/30 active:translate-y-0",
+      "bg-navy text-white hover:bg-navy-light hover:shadow-lg hover:shadow-navy/30 hover:-translate-y-0.5 active:translate-y-0",
     outline:
-      "border border-orange text-orange hover:-translate-y-0.5 hover:bg-orange hover:text-white active:translate-y-0",
+      "border-2 border-orange text-orange hover:bg-orange hover:text-white hover:-translate-y-0.5 active:translate-y-0",
   }
 
   const classes = `${base} ${sizes[size]} ${variants[variant]} ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : ""} ${className}`

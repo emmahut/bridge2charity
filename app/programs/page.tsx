@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Our Programs",
+  title: "Our Programs — Bridge2Charity Foundation",
   description:
     "Explore Bridge2Charity's three programs: Back to School, English Enhancement, and One Hen Per Child — each designed to create lasting change in Rwandan communities.",
 }
@@ -162,7 +162,7 @@ export default function ProgramsPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us
