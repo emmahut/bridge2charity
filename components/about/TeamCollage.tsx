@@ -23,7 +23,7 @@ export default function TeamCollage() {
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Civic Leaders,{" "}
-              <span className="text-orange">Driving Change</span>
+              <span className="text-orange-light">Driving Change</span>
             </h2>
             <p
               className="text-white/60 text-sm leading-relaxed mb-6"

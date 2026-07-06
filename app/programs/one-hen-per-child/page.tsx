@@ -1,24 +1,56 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useSyncExternalStore } from "react"
 import Image from "next/image"
 import Link from "next/link"
+
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
+
+function subscribeReducedMotion(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => {}
+  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY)
+  mediaQuery.addEventListener("change", onStoreChange)
+  return () => mediaQuery.removeEventListener("change", onStoreChange)
+}
+
+function getReducedMotionSnapshot() {
+  return typeof window !== "undefined" && window.matchMedia(REDUCED_MOTION_QUERY).matches
+}
+
+function getServerReducedMotionSnapshot() {
+  return false
+}
+
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getServerReducedMotionSnapshot
+  )
+}
 
 // ── Count-up hook ────────────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 2000, triggered = false) {
   const [count, setCount] = useState(0)
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   useEffect(() => {
-    if (!triggered) return
+    if (!triggered || prefersReducedMotion) return
     const startTime = performance.now()
+    let frameId: number
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * target))
-      if (progress < 1) requestAnimationFrame(step)
+      if (progress < 1) frameId = requestAnimationFrame(step)
       else setCount(target)
     }
-    requestAnimationFrame(step)
-  }, [target, duration, triggered])
+    frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [target, duration, triggered, prefersReducedMotion])
+
+  if (!triggered) return 0
+  if (prefersReducedMotion) return target
   return count
 }
 
@@ -31,9 +63,12 @@ function GalleryPhoto({ n }: { n: number }) {
       style={{ backgroundColor: "rgba(5,10,48,0.07)" }}
     >
       {!failed ? (
-        <img
+        <Image
           src={`/images/programs/ohpc-gallery-${n}.jpg`}
           alt={`One Hen Per Child — photo ${n}`}
+          width={208}
+          height={160}
+          sizes="208px"
           className="w-full h-full object-cover"
           onError={() => setFailed(true)}
         />
@@ -99,11 +134,11 @@ function StatCard({ value, label, suffix, triggered }: {
   return (
     <div
       className="flex flex-col items-center justify-center text-center rounded-2xl py-8 px-6"
-      style={{ backgroundColor: "#FBF6F0" }}
+      style={{ backgroundColor: "var(--color-cream)" }}
     >
       <p
         className="text-5xl font-bold leading-none mb-2"
-        style={{ color: "#F16927", fontFamily: "var(--font-montserrat)" }}
+        style={{ color: "var(--color-orange)", fontFamily: "var(--font-montserrat)" }}
       >
         {count}{suffix}
       </p>
@@ -139,7 +174,7 @@ export default function OneHenPerChildPage() {
       <section className="relative min-h-[65vh] flex items-center justify-center bg-navy overflow-hidden">
         <Image
           src="/images/programs/ohpc-hero.jpg"
-          alt="One Hen Per Child Program"
+          alt="A child in Rwanda participating in the One Hen Per Child program"
           fill
           className="object-cover object-center"
           priority
@@ -151,7 +186,7 @@ export default function OneHenPerChildPage() {
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             A well-fed child is a child{" "}
-            <span className="text-orange">ready to learn.</span>
+            <span className="text-orange-light">ready to learn.</span>
           </h1>
         </div>
       </section>
@@ -237,7 +272,7 @@ export default function OneHenPerChildPage() {
                 <div className="flex flex-col items-center">
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 z-10"
-                    style={{ backgroundColor: "#050a30" }}
+                    style={{ backgroundColor: "var(--color-navy)" }}
                   >
                     <span
                       className="text-white text-lg font-bold"
@@ -247,13 +282,10 @@ export default function OneHenPerChildPage() {
                     </span>
                   </div>
                   {i < steps.length - 1 && (
-                    <div
-                      className="w-0.5 flex-1 mt-2 mb-0"
-                      style={{ backgroundColor: "#f16927", minHeight: "48px" }}
-                    />
+                    <div className="w-0.5 flex-1 mt-2 mb-0 bg-orange" style={{ minHeight: "48px" }} />
                   )}
                 </div>
-                <div className={`flex-1 bg-gray-50 rounded-2xl px-7 py-6 ${i < steps.length - 1 ? "mb-4" : ""}`}>
+                <div className={`flex-1 bg-cream rounded-2xl px-7 py-6 ${i < steps.length - 1 ? "mb-4" : ""}`}>
                   <h3
                     className="text-navy font-bold text-base mb-2"
                     style={{ fontFamily: "var(--font-jakarta)" }}
@@ -342,7 +374,7 @@ export default function OneHenPerChildPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

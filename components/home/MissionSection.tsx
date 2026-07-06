@@ -29,13 +29,17 @@ const values = [
 
 export default function MissionSection() {
   return (
-    <section className="py-12 lg:py-16 bg-cream" id="mission">
+    <section className="relative overflow-hidden bg-cream py-16 lg:py-24" id="mission">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-[linear-gradient(rgba(5,10,48,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(5,10,48,0.035)_1px,transparent_1px)] bg-[size:48px_48px]"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="relative grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
 
           {/* Left — label + intro + mission/vision */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="mb-5 flex items-center gap-3">
               <div className="h-px w-8 bg-orange" />
               <span
                 className="text-orange text-sm font-semibold tracking-widest uppercase"
@@ -46,7 +50,7 @@ export default function MissionSection() {
             </div>
 
             <p
-              className="text-navy/75 text-lg leading-relaxed mb-6"
+              className="mb-7 max-w-2xl text-lg leading-relaxed text-navy/75"
               style={{ fontFamily: "var(--font-nunito)" }}
             >
               Bridge2Charity Foundation was not born in a boardroom. It was born in a community in the quiet
@@ -56,14 +60,15 @@ export default function MissionSection() {
             </p>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl text-navy font-bold leading-tight mb-5"
+              className="mb-6 text-3xl font-bold leading-tight text-navy sm:text-4xl lg:text-5xl"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Our Mission &amp; Vision
             </h2>
 
-            <div className="space-y-8">
-              <div className="border-l-4 border-orange pl-6">
+            <div className="space-y-4">
+              <div className="rounded-lg border border-orange/15 bg-white/85 p-6 shadow-soft-sm backdrop-blur-sm">
+                <div className="mb-4 h-1 w-14 rounded-full bg-orange" />
                 <h3
                   className="text-lg text-navy font-semibold mb-2"
                   style={{ fontFamily: "var(--font-jakarta)" }}
@@ -78,7 +83,8 @@ export default function MissionSection() {
                   sustainable, community-driven initiatives that create lasting change.
                 </p>
               </div>
-              <div className="border-l-4 border-olive pl-6">
+              <div className="rounded-lg border border-olive/15 bg-white/85 p-6 shadow-soft-sm backdrop-blur-sm">
+                <div className="mb-4 h-1 w-14 rounded-full bg-olive" />
                 <h3
                   className="text-lg text-navy font-semibold mb-2"
                   style={{ fontFamily: "var(--font-jakarta)" }}
@@ -94,25 +100,49 @@ export default function MissionSection() {
                 </p>
               </div>
             </div>
+
+            <div className="mt-5 border-l-4 border-navy bg-navy px-6 py-5 text-white shadow-soft-sm">
+              <span
+                className="text-xs font-bold uppercase tracking-[0.22em] text-orange-light"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                Field principle
+              </span>
+              <p
+                className="mt-2 text-sm font-semibold leading-relaxed text-white/78"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                Stay close enough to the community that every program decision can be traced back
+                to a real student, family, or classroom.
+              </p>
+            </div>
           </div>
 
           {/* Right — Our Values (starts parallel to "Who We Are") */}
           <div>
-            <h3
-              className="text-2xl text-navy font-bold mb-8"
-              style={{ fontFamily: "var(--font-jakarta)" }}
-            >
-              Our Values
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="mb-5 flex items-end justify-between gap-4 px-1">
+              <h3
+                className="text-2xl text-navy font-bold"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                Our Values
+              </h3>
+              <span
+                className="hidden text-xs font-bold uppercase tracking-[0.18em] text-navy/35 sm:block"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                operating code
+              </span>
+            </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {values.map((value) => {
                 const Icon = value.icon
                 return (
                   <div
                     key={value.title}
-                    className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-navy/5 hover:border-orange/20 transition-all duration-300"
+                    className="group min-h-60 rounded-lg border border-navy/5 bg-white p-6 shadow-soft-sm transition-all duration-300 hover:-translate-y-1 hover:border-orange/20 hover:shadow-soft-md"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-orange/10 group-hover:bg-orange/20 flex items-center justify-center mb-4 transition-colors duration-300">
+                    <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-lg bg-orange/10 transition-colors duration-300 group-hover:bg-orange/20">
                       <Icon size={22} className="text-orange" />
                     </div>
                     <h4
@@ -130,6 +160,12 @@ export default function MissionSection() {
                   </div>
                 )
               })}
+            </div>
+            <div
+              className="mt-4 rounded-lg bg-navy px-5 py-4 text-sm font-semibold leading-relaxed text-white/78"
+              style={{ fontFamily: "var(--font-jakarta)" }}
+            >
+              We build with youth leadership, practical follow-through, and partnerships that stay close to the community.
             </div>
           </div>
 

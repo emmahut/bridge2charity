@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, HeartHandshake } from "lucide-react"
 
 type DropdownKey = "about" | "programs" | "getInvolved"
 
@@ -63,6 +63,11 @@ export default function Navigation() {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
   }
 
+  const closeMobileMenu = () => {
+    setIsOpen(false)
+    setMobileOpenDropdown(null)
+  }
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
@@ -70,13 +75,20 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    setIsOpen(false)
-    setMobileOpenDropdown(null)
-  }, [pathname])
-
-  useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : ""
     return () => { document.body.style.overflow = "" }
+  }, [isOpen])
+
+  useEffect(() => {
+    if (!isOpen) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false)
+        setMobileOpenDropdown(null)
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    return () => document.removeEventListener("keydown", handleKeyDown)
   }, [isOpen])
 
   function isNavLinkActive(link: NavLink): boolean {
@@ -89,27 +101,45 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-navy shadow-lg shadow-navy/20" : "bg-navy/95 backdrop-blur-sm"
+        className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${
+          scrolled
+            ? "border-white/10 bg-navy/95 shadow-lg shadow-navy/20 backdrop-blur-xl"
+            : "border-white/5 bg-navy/90 backdrop-blur-md"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid h-16 grid-cols-[1fr_auto] items-center gap-4 lg:h-20 lg:grid-cols-[minmax(220px,1fr)_auto_minmax(220px,1fr)]">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0 py-2">
-              <Image
-                src="/images/logo/logo.png"
-                alt="Bridge2Charity Foundation"
-                width={120}
-                height={40}
-                className="h-10 w-auto object-contain mix-blend-screen"
-                priority
-              />
+            <Link href="/" className="group inline-flex min-w-0 items-center gap-3 justify-self-start">
+              <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5 shadow-inner lg:h-12 lg:w-12">
+                <Image
+                  src="/images/logo/icon.png"
+                  alt=""
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                  priority
+                />
+              </span>
+              <span className="hidden min-w-0 flex-col leading-none sm:flex">
+                <span
+                  className="text-base font-extrabold tracking-[0.01em] text-white transition-colors duration-200 group-hover:text-orange-light"
+                  style={{ fontFamily: "var(--font-montserrat)" }}
+                >
+                  Bridge2Charity
+                </span>
+                <span
+                  className="mt-1 text-[10px] font-bold uppercase tracking-[0.24em] text-white/45"
+                  style={{ fontFamily: "var(--font-jakarta)" }}
+                >
+                  Foundation
+                </span>
+              </span>
             </Link>
 
             {/* Desktop nav */}
-            <div className="hidden lg:flex items-center gap-0.5">
+            <div className="hidden items-center justify-center gap-1 rounded-full border border-white/10 bg-white/[0.06] p-1 shadow-inner lg:flex">
               {navLinks.map((link) => {
                 const active = isNavLinkActive(link)
 
@@ -123,11 +153,15 @@ export default function Navigation() {
                       onMouseLeave={closeDrop}
                     >
                       <button
+                        type="button"
                         style={{ fontFamily: "var(--font-jakarta)" }}
-                        className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
+                        aria-expanded={isDropOpen}
+                        aria-controls={`${link.dropdownKey}-dropdown`}
+                        onClick={() => setOpenDropdown(isDropOpen ? null : link.dropdownKey!)}
+                        className={`flex min-h-10 items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
                           active
-                            ? "text-orange border-b-2 border-orange"
-                            : "text-white/90 hover:text-white hover:bg-white/10"
+                            ? "bg-orange text-white shadow-sm shadow-orange/20"
+                            : "text-white/78 hover:bg-white/10 hover:text-white"
                         }`}
                       >
                         {link.label}
@@ -138,7 +172,9 @@ export default function Navigation() {
                       </button>
 
                       <div
-                        className={`absolute top-full left-0 mt-1 w-56 bg-navy-light border border-white/10 rounded-xl shadow-xl shadow-navy/40 overflow-hidden transition-all duration-200 ${
+                        id={`${link.dropdownKey}-dropdown`}
+                        aria-hidden={!isDropOpen}
+                        className={`absolute left-0 top-full mt-3 w-60 overflow-hidden rounded-lg border border-white/10 bg-navy-light shadow-xl shadow-navy/40 transition-all duration-200 ${
                           isDropOpen
                             ? "opacity-100 translate-y-0 pointer-events-auto"
                             : "opacity-0 -translate-y-2 pointer-events-none"
@@ -151,7 +187,8 @@ export default function Navigation() {
                             key={sub.href}
                             href={sub.href}
                             style={{ fontFamily: "var(--font-jakarta)" }}
-                            className="flex items-center px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-orange/20 transition-colors duration-150 border-b border-white/5 last:border-0"
+                            onClick={() => setOpenDropdown(null)}
+                            className="flex min-h-11 items-center border-b border-white/5 px-4 py-3 text-sm font-medium text-white/80 transition-colors duration-150 last:border-0 hover:bg-orange-light/20 hover:text-white"
                           >
                             {sub.label}
                           </Link>
@@ -166,10 +203,10 @@ export default function Navigation() {
                     key={link.href}
                     href={link.href}
                     style={{ fontFamily: "var(--font-jakarta)" }}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
+                    className={`flex min-h-10 items-center rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
                       active
-                        ? "text-orange border-b-2 border-orange"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
+                        ? "bg-orange text-white shadow-sm shadow-orange/20"
+                        : "text-white/78 hover:bg-white/10 hover:text-white"
                     }`}
                   >
                     {link.label}
@@ -179,18 +216,22 @@ export default function Navigation() {
             </div>
 
             {/* Donate button + mobile toggle */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-self-end gap-3">
               <Link
                 href="/donate"
                 style={{ fontFamily: "var(--font-montserrat)" }}
-                className="hidden sm:inline-flex items-center px-5 py-2 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
+                className="hidden min-h-11 items-center gap-2 rounded-lg bg-orange px-5 py-2 text-sm font-bold text-white shadow-lg shadow-orange/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-dark hover:shadow-orange/30 sm:inline-flex"
               >
+                <HeartHandshake size={16} aria-hidden="true" />
                 Donate
               </Link>
               <button
+                type="button"
                 onClick={() => setIsOpen(true)}
-                className="lg:hidden p-2 text-white hover:bg-white/10 rounded-md transition-colors"
+                className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/10 text-white transition-colors hover:bg-white/10 lg:hidden"
                 aria-label="Open menu"
+                aria-controls="mobile-navigation-menu"
+                aria-expanded={isOpen}
               >
                 <Menu size={24} />
               </button>
@@ -210,25 +251,47 @@ export default function Navigation() {
 
       {/* Mobile drawer */}
       <div
+        id="mobile-navigation-menu"
         className={`fixed top-0 right-0 bottom-0 z-50 w-80 bg-navy flex flex-col lg:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
+        aria-hidden={!isOpen}
+        inert={!isOpen}
       >
         {/* Drawer header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-          <Image
-            src="/images/logo/icon.png"
-            alt="Bridge2Charity"
-            width={40}
-            height={40}
-            className="h-10 w-auto object-contain"
-          />
+        <div className="flex items-center justify-between border-b border-white/10 px-5 py-5">
+          <Link href="/" onClick={closeMobileMenu} className="inline-flex items-center gap-3">
+            <span className="relative flex h-11 w-11 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-white/5">
+              <Image
+                src="/images/logo/icon.png"
+                alt=""
+                fill
+                sizes="44px"
+                className="object-cover"
+              />
+            </span>
+            <span className="flex flex-col leading-none">
+              <span
+                className="text-sm font-extrabold text-white"
+                style={{ fontFamily: "var(--font-montserrat)" }}
+              >
+                Bridge2Charity
+              </span>
+              <span
+                className="mt-1 text-[9px] font-bold uppercase tracking-[0.22em] text-white/45"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                Foundation
+              </span>
+            </span>
+          </Link>
           <button
-            onClick={() => setIsOpen(false)}
-            className="p-2 text-white hover:bg-white/10 rounded-md transition-colors"
+            type="button"
+            onClick={closeMobileMenu}
+            className="flex h-10 w-10 items-center justify-center rounded-lg text-white transition-colors hover:bg-white/10"
             aria-label="Close menu"
           >
             <X size={22} />
@@ -245,9 +308,12 @@ export default function Navigation() {
               return (
                 <div key={link.href}>
                   <button
+                    type="button"
                     onClick={() => setMobileOpenDropdown(mobileOpen ? null : link.dropdownKey!)}
-                    className={`flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
-                      active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
+                    aria-expanded={mobileOpen}
+                    aria-controls={`mobile-${link.dropdownKey}-dropdown`}
+                    className={`flex min-h-12 w-full items-center justify-between rounded-lg px-4 py-3 text-base font-semibold transition-colors duration-200 ${
+                      active ? "bg-orange-light/20 text-orange-light" : "text-white/90 hover:bg-white/10 hover:text-white"
                     }`}
                     style={{ fontFamily: "var(--font-jakarta)" }}
                   >
@@ -258,12 +324,13 @@ export default function Navigation() {
                     />
                   </button>
                   {mobileOpen && (
-                    <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange/30 pl-3">
+                    <div id={`mobile-${link.dropdownKey}-dropdown`} className="ml-4 mt-1 space-y-1 border-l-2 border-orange-light/30 pl-3">
                       {link.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="flex items-center px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
+                          onClick={closeMobileMenu}
+                          className="flex min-h-10 items-center rounded-lg px-3 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
                           style={{ fontFamily: "var(--font-jakarta)" }}
                         >
                           {sub.label}
@@ -279,8 +346,9 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
-                  active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
+                onClick={closeMobileMenu}
+                className={`flex min-h-12 items-center rounded-lg px-4 py-3 text-base font-semibold transition-colors duration-200 ${
+                  active ? "bg-orange-light/20 text-orange-light" : "text-white/90 hover:bg-white/10 hover:text-white"
                 }`}
                 style={{ fontFamily: "var(--font-jakarta)" }}
               >
@@ -294,9 +362,11 @@ export default function Navigation() {
         <div className="px-6 py-6 border-t border-white/10">
           <Link
             href="/donate"
+            onClick={closeMobileMenu}
             style={{ fontFamily: "var(--font-montserrat)" }}
-            className="flex items-center justify-center w-full py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-colors duration-200"
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-orange py-3 font-bold text-white transition-colors duration-200 hover:bg-orange-dark"
           >
+            <HeartHandshake size={17} aria-hidden="true" />
             Donate
           </Link>
         </div>

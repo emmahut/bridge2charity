@@ -8,12 +8,11 @@ const quickLinks = [
   { label: "News", href: "/news" },
   { label: "Programs", href: "/programs" },
   { label: "Contact", href: "/contact" },
-  { label: "Impact", href: "/impact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Impact", href: "/#impact" },
 ]
 
 const programs = [
-  { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
+  { label: "English Enhancement Program", href: "/programs/english-enhancement" },
   { label: "Back to School", href: "/programs/back-to-school" },
   { label: "One Hen Per Child", href: "/programs/one-hen-per-child" },
 ]
@@ -120,7 +119,7 @@ export default function Footer() {
                 <li key={p.href}>
                   <Link
                     href={p.href}
-                    className="text-white/70 hover:text-orange text-sm transition-colors duration-200"
+                    className="text-white/70 hover:text-orange-light text-sm transition-colors duration-200"
                     style={{ fontFamily: "var(--font-nunito)" }}
                   >
                     {p.label}
@@ -140,7 +139,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-orange mt-0.5 flex-shrink-0" />
+                <MapPin size={16} className="text-orange-light mt-0.5 flex-shrink-0" />
                 <span
                   className="text-white/70 text-sm"
                   style={{ fontFamily: "var(--font-nunito)" }}
@@ -149,31 +148,31 @@ export default function Footer() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone size={16} className="text-orange mt-0.5 flex-shrink-0" />
+                <Phone size={16} className="text-orange-light mt-0.5 flex-shrink-0" />
                 <div
                   className="text-white/70 text-sm space-y-1"
                   style={{ fontFamily: "var(--font-nunito)" }}
                 >
-                  <a href="tel:+250799311463" className="block hover:text-orange transition-colors">
+                  <a href="tel:+250799311463" className="block hover:text-orange-light transition-colors">
                     +250 799 311 463
                   </a>
-                  <a href="tel:+250786270684" className="block hover:text-orange transition-colors">
+                  <a href="tel:+250786270684" className="block hover:text-orange-light transition-colors">
                     +250 786 270 684
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-3">
-                <Mail size={16} className="text-orange mt-0.5 flex-shrink-0" />
+                <Mail size={16} className="text-orange-light mt-0.5 flex-shrink-0" />
                 <a
                   href="mailto:bridge2char@gmail.com"
-                  className="text-white/70 hover:text-orange text-sm transition-colors"
+                  className="text-white/70 hover:text-orange-light text-sm transition-colors"
                   style={{ fontFamily: "var(--font-nunito)" }}
                 >
                   bridge2char@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Clock size={16} className="text-orange mt-0.5 flex-shrink-0" />
+                <Clock size={16} className="text-orange-light mt-0.5 flex-shrink-0" />
                 <span
                   className="text-white/70 text-sm"
                   style={{ fontFamily: "var(--font-nunito)" }}
@@ -189,7 +188,7 @@ export default function Footer() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/donate"
-            className="inline-flex items-center px-8 py-3 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
+            className="inline-flex items-center px-8 py-3 bg-orange hover:bg-orange-dark text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Invest In B2C

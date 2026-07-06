@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import TeamCollage from "@/components/about/TeamCollage"
 
 export const metadata: Metadata = {
-  title: "About Us — Bridge2Charity Foundation",
+  title: "About Us",
   description:
     "Learn about Bridge2Charity Foundation's story, mission, team, and the civic leaders driving change in Rwanda.",
 }
@@ -36,56 +37,81 @@ export default function AboutPage() {
     <main>
 
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[65vh] flex items-end bg-navy overflow-hidden">
+      <section className="relative isolate flex min-h-[72svh] items-end overflow-hidden bg-navy">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-navy via-navy/90 to-navy/70" />
-          {/* Replace with Divine's photo: uncomment below and set src
           <Image
-            src="/images/about/divine-hero.jpg"
-            alt="Ishimwe Divine"
+            src="/images/programs/eep-volunteer-selfie.jpg"
+            alt="Bridge2Charity volunteers with primary students at a partner school"
             fill
-            className="object-cover object-top opacity-40"
+            sizes="100vw"
+            className="object-cover object-[58%_center]"
             priority
           />
-          */}
         </div>
-        <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/88 to-navy/36" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy/72 via-navy/10 to-navy/20" />
+        <div className="absolute inset-0 opacity-[0.07]">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" strokeWidth="1" />
+              <pattern id="about-hero-grid" width="72" height="72" patternUnits="userSpaceOnUse">
+                <path d="M 72 0 L 0 0 0 72" fill="none" stroke="white" strokeWidth="1" />
               </pattern>
             </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
+            <rect width="100%" height="100%" fill="url(#about-hero-grid)" />
           </svg>
         </div>
-        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange via-olive to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-navy to-transparent" />
+        <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-light via-olive to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-28">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="h-px w-8 bg-orange" />
-            <span
-              className="text-orange text-xs font-semibold tracking-widest uppercase"
-              style={{ fontFamily: "var(--font-jakarta)" }}
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl px-4 pb-12 pt-24 sm:px-6 sm:pb-14 lg:px-8 lg:pb-16">
+          <div className="max-w-4xl">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-px w-8 bg-orange-light" />
+              <span
+                className="text-orange-light text-xs font-semibold tracking-widest uppercase"
+                style={{ fontFamily: "var(--font-jakarta)" }}
+              >
+                About Bridge2Charity
+              </span>
+            </div>
+            <h1
+              className="max-w-4xl text-4xl font-bold leading-[1.04] text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+              style={{ fontFamily: "var(--font-montserrat)" }}
             >
-              About Bridge2Charity
-            </span>
+              Rwanda will be built by{" "}
+              <span className="text-orange-light">Rwandan youth</span>, for Rwandans.
+            </h1>
+            <p
+              className="mt-6 max-w-2xl text-base leading-relaxed text-white/76 sm:text-lg"
+              style={{ fontFamily: "var(--font-nunito)" }}
+            >
+              Bridge2Charity is powered by a team of young Rwandan civic leaders who bring
+              both lived experience and professional dedication to this mission.
+            </p>
+
+            <dl className="mt-8 grid max-w-3xl grid-cols-1 gap-4 border-y border-white/12 py-5 sm:grid-cols-3">
+              {[
+                ["2022", "Founded through service"],
+                ["Youth-led", "Built from lived experience"],
+                ["Rwanda", "Community-rooted change"],
+              ].map(([value, label]) => (
+                <div key={value} className="min-w-0">
+                  <dt
+                    className="text-2xl font-bold leading-none text-white sm:text-3xl"
+                    style={{ fontFamily: "var(--font-montserrat)" }}
+                  >
+                    {value}
+                  </dt>
+                  <dd
+                    className="mt-2 text-xs font-semibold uppercase tracking-wide text-white/52"
+                    style={{ fontFamily: "var(--font-jakarta)" }}
+                  >
+                    {label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <h1
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-3xl mb-5"
-            style={{ fontFamily: "var(--font-montserrat)" }}
-          >
-            Rwanda Will be Built by{" "}
-            <span className="text-orange">Rwandan Youth</span>{" "}
-            for Rwandans.
-          </h1>
-          <p
-            className="text-white/65 text-base sm:text-lg max-w-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-nunito)" }}
-          >
-            Bridge2Charity is powered by a team of young Rwandan civic leaders who bring
-            both lived experience and professional dedication to this mission.
-          </p>
         </div>
       </section>
 
@@ -134,16 +160,13 @@ export default function AboutPage() {
 
             {/* Video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
-                style={{ background: "#f7f7f7" }}
-              >
+              <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 bg-cream">
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
-                <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
+                <p className="text-navy/55 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   B2C origin video coming soon
                 </p>
               </div>
@@ -267,16 +290,13 @@ export default function AboutPage() {
 
             {/* NST video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
-                style={{ background: "#f7f7f7" }}
-              >
+              <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 bg-cream">
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
-                <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
+                <p className="text-navy/55 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   Rwanda NST video coming soon
                 </p>
               </div>
@@ -310,7 +330,7 @@ export default function AboutPage() {
           <div className="flex justify-center">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

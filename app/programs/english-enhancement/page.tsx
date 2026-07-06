@@ -12,7 +12,7 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "English Enhancement Program — Bridge2Charity Foundation",
+  title: "English Enhancement Program",
   description:
     "Building Rwanda's next excellent generation through English literacy, communication, and critical thinking for primary students at EP Kirambo.",
 }
@@ -22,7 +22,7 @@ function ArrowCircle() {
   return (
     <div
       className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-      style={{ backgroundColor: "#f16927" }}
+      style={{ backgroundColor: "var(--color-orange)" }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -43,13 +43,13 @@ const packageThemes = [
 ]
 
 const themeColors = [
-  "#f16927",
-  "#4f6815",
-  "#050a30",
-  "#75070c",
-  "#f16927",
-  "#4f6815",
-  "#050a30",
+  "var(--color-orange)",
+  "var(--color-olive)",
+  "var(--color-navy)",
+  "var(--color-maroon)",
+  "var(--color-orange)",
+  "var(--color-olive)",
+  "var(--color-navy)",
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -61,7 +61,7 @@ export default function EnglishEnhancementPage() {
       <section className="relative min-h-[65vh] flex items-end bg-navy overflow-hidden">
         <Image
           src="/images/programs/eep-hero.jpg"
-          alt="English Enhancement Program"
+          alt="Students in Rwanda participating in the English Enhancement Program"
           fill
           className="object-cover object-center"
           priority
@@ -75,7 +75,7 @@ export default function EnglishEnhancementPage() {
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Building Rwanda&apos;s Next{" "}
-            <span className="text-orange">Excellent Generation</span>
+            <span className="text-orange-light">Excellent Generation</span>
           </h1>
         </div>
       </section>
@@ -113,12 +113,9 @@ export default function EnglishEnhancementPage() {
 
             {/* Right — video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-4 border-2 border-dashed border-navy/15"
-                style={{ background: "#f7f7f7" }}
-              >
+              <div className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-4 border-2 border-dashed border-navy/15 bg-cream">
                 <div className="w-16 h-16 rounded-full bg-navy/8 flex items-center justify-center">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#050a30" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-navy)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.3 }}>
                     <polygon points="5 3 19 12 5 21 5 3" />
                   </svg>
                 </div>
@@ -130,7 +127,7 @@ export default function EnglishEnhancementPage() {
                     Welcome to English Enhancement
                   </p>
                   <p
-                    className="text-navy/30 text-xs"
+                    className="text-navy/55 text-xs"
                     style={{ fontFamily: "var(--font-nunito)" }}
                   >
                     Video coming soon
@@ -156,7 +153,7 @@ export default function EnglishEnhancementPage() {
                 className="font-semibold text-navy"
                 style={{
                   textDecoration: "underline",
-                  textDecorationColor: "#f16927",
+                  textDecorationColor: "var(--color-orange)",
                   textDecorationThickness: "3px",
                   textUnderlineOffset: "4px",
                 }}
@@ -167,7 +164,7 @@ export default function EnglishEnhancementPage() {
               <span
                 className="font-semibold text-navy inline"
                 style={{
-                  border: "2.5px solid #f16927",
+                  border: "2.5px solid var(--color-orange)",
                   borderRadius: "30px",
                   padding: "2px 10px",
                   whiteSpace: "nowrap",
@@ -308,7 +305,7 @@ export default function EnglishEnhancementPage() {
                   </h3>
                 </div>
                 <p
-                  className="text-gray-600 text-sm leading-relaxed"
+                  className="text-navy/68 text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-nunito)", fontSize: "16px" }}
                 >
                   {focus.description}
@@ -338,7 +335,7 @@ export default function EnglishEnhancementPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

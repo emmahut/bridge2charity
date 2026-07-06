@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import { notFound } from "next/navigation"
 import { teamMembers, boardMembers, getActiveTeamMembers } from "@/data/team"
 
@@ -18,9 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const member =
     teamMembers.find((m) => m.slug === slug) ??
     boardMembers.find((m) => m.slug === slug)
-  if (!member) return { title: "Team Member — Bridge2Charity Foundation" }
+  if (!member) return { title: "Team Member" }
   return {
-    title: `${"name" in member ? member.name : ""} — Bridge2Charity Foundation`,
+    title: "name" in member ? member.name : "Team Member",
     description: member.bio.slice(0, 155),
   }
 }
@@ -74,13 +75,18 @@ export default async function TeamMemberPage({ params }: Props) {
           <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
             {/* Circular photo */}
             <div
-              className="w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 flex-shrink-0 flex items-center justify-center"
-              style={{ border: "2px solid #e0e0e0", background: "linear-gradient(135deg, #0d1240 60%, #1a2050)" }}
+              className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-full overflow-hidden mb-6 flex-shrink-0 flex items-center justify-center"
+              style={{
+                border: "2px solid rgba(255,255,255,0.18)",
+                background: "linear-gradient(135deg, var(--color-navy-light) 60%, var(--color-navy))",
+              }}
             >
               {photo ? (
-                <img
+                <Image
                   src={photo}
-                  alt={name}
+                  alt={`Photo of ${name}`}
+                  fill
+                  sizes="(min-width: 640px) 208px, 176px"
                   className="w-full h-full object-cover"
                 />
               ) : (
@@ -119,7 +125,7 @@ export default async function TeamMemberPage({ params }: Props) {
             >
               <span className="text-white">{firstName}</span>
               {" "}
-              <span style={{ color: "#4f6815" }}>{lastName}</span>
+              <span style={{ color: "var(--color-olive-light)" }}>{lastName}</span>
             </h1>
 
             {/* Role — bold sharp white */}
