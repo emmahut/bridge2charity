@@ -62,17 +62,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
       className={`${montserrat.variable} ${jakarta.variable} ${nunito.variable} ${inter.variable} ${dmSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <a href="#main-content" className="skip-link">
-          Skip to main content
-        </a>
         <Navigation />
-        <div id="main-content" tabIndex={-1} className="flex-1 pt-16 lg:pt-20">
-          {children}
-        </div>
+        <main className="flex-1 pt-16 lg:pt-20">{children}</main>
         <Footer />
       </body>
     </html>

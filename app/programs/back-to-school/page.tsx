@@ -1,56 +1,24 @@
 "use client"
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-
-const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)"
-
-function subscribeReducedMotion(onStoreChange: () => void) {
-  if (typeof window === "undefined") return () => {}
-  const mediaQuery = window.matchMedia(REDUCED_MOTION_QUERY)
-  mediaQuery.addEventListener("change", onStoreChange)
-  return () => mediaQuery.removeEventListener("change", onStoreChange)
-}
-
-function getReducedMotionSnapshot() {
-  return typeof window !== "undefined" && window.matchMedia(REDUCED_MOTION_QUERY).matches
-}
-
-function getServerReducedMotionSnapshot() {
-  return false
-}
-
-function usePrefersReducedMotion() {
-  return useSyncExternalStore(
-    subscribeReducedMotion,
-    getReducedMotionSnapshot,
-    getServerReducedMotionSnapshot
-  )
-}
 
 // ── Count-up hook ────────────────────────────────────────────────────────────
 function useCountUp(target: number, duration = 2000, triggered = false) {
   const [count, setCount] = useState(0)
-  const prefersReducedMotion = usePrefersReducedMotion()
-
   useEffect(() => {
-    if (!triggered || prefersReducedMotion) return
+    if (!triggered) return
     const startTime = performance.now()
-    let frameId: number
     const step = (now: number) => {
       const progress = Math.min((now - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * target))
-      if (progress < 1) frameId = requestAnimationFrame(step)
+      if (progress < 1) requestAnimationFrame(step)
       else setCount(target)
     }
-    frameId = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(frameId)
-  }, [target, duration, triggered, prefersReducedMotion])
-
-  if (!triggered) return 0
-  if (prefersReducedMotion) return target
+    requestAnimationFrame(step)
+  }, [target, duration, triggered])
   return count
 }
 
@@ -59,7 +27,7 @@ function ArrowCircle() {
   return (
     <div
       className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-      style={{ backgroundColor: "var(--color-orange)" }}
+      style={{ backgroundColor: "#f16927" }}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -134,11 +102,10 @@ export default function BackToSchoolPage() {
       <section className="relative min-h-[70vh] flex items-center justify-center bg-navy overflow-hidden">
         <Image
           src="/images/programs/bts-hero.jpg"
-          alt="Students in Rwanda participating in the Back to School Program"
+          alt="Back to School Program"
           fill
           className="object-cover object-center"
           priority
-          sizes="100vw"
         />
         <div className="absolute inset-0 bg-navy/60" />
         <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 py-28 max-w-3xl mx-auto">
@@ -149,7 +116,7 @@ export default function BackToSchoolPage() {
             &ldquo;The best way to find yourself is to lose yourself in the service of others.&rdquo;
           </p>
           <p
-            className="text-orange-light font-semibold text-base sm:text-lg tracking-wide"
+            className="text-orange font-semibold text-base sm:text-lg tracking-wide"
             style={{ fontFamily: "var(--font-jakarta)" }}
           >
             — Mahatma Gandhi
@@ -169,7 +136,6 @@ export default function BackToSchoolPage() {
                 alt="Bridge2Charity programs"
                 fill
                 className="object-cover object-center"
-                sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
 
@@ -242,7 +208,6 @@ export default function BackToSchoolPage() {
                 alt="Bridge2Charity students in Burera"
                 fill
                 className="object-cover object-center"
-                sizes="(min-width: 1024px) 50vw, 100vw"
               />
             </div>
 
@@ -261,7 +226,7 @@ export default function BackToSchoolPage() {
               <div ref={statsRef} className="flex gap-12">
                 <div>
                   <p
-                    className="text-5xl font-bold text-orange-light leading-none"
+                    className="text-5xl font-bold text-orange leading-none"
                     style={{ fontFamily: "var(--font-montserrat)" }}
                   >
                     {studentsCount}+
@@ -275,7 +240,7 @@ export default function BackToSchoolPage() {
                 </div>
                 <div>
                   <p
-                    className="text-5xl font-bold text-orange-light leading-none"
+                    className="text-5xl font-bold text-orange leading-none"
                     style={{ fontFamily: "var(--font-montserrat)" }}
                   >
                     {schoolsCount}+
@@ -294,14 +259,14 @@ export default function BackToSchoolPage() {
       </section>
 
       {/* ── Cohort section — dark bg, white buttons ──────────────────────────── */}
-      <section className="bg-navy py-14 lg:py-16">
+      <section className="py-14 lg:py-16" style={{ backgroundColor: "#1c1c1c" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4">
 
             {/* Cohort 1 — active */}
             <Link
               href="/scholars/cohort-1"
-              className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-cream transition-colors duration-200"
+              className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-gray-100 transition-colors duration-200"
               style={{ fontFamily: "var(--font-jakarta)" }}
             >
               Meet Cohort 1
@@ -310,10 +275,10 @@ export default function BackToSchoolPage() {
             {/* Cohort 2, 3, 4, 5 — uncomment when confirmed */}
             {false && (
               <>
-                <Link href="/scholars/cohort-2" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-cream transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 2</Link>
-                <Link href="/scholars/cohort-3" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-cream transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 3</Link>
-                <Link href="/scholars/cohort-4" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-cream transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 4</Link>
-                <Link href="/scholars/cohort-5" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-cream transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 5</Link>
+                <Link href="/scholars/cohort-2" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-gray-100 transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 2</Link>
+                <Link href="/scholars/cohort-3" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-gray-100 transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 3</Link>
+                <Link href="/scholars/cohort-4" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-gray-100 transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 4</Link>
+                <Link href="/scholars/cohort-5" className="inline-block bg-white text-navy font-bold uppercase tracking-widest text-sm px-10 py-4 rounded-md hover:bg-gray-100 transition-colors duration-200" style={{ fontFamily: "var(--font-jakarta)" }}>Meet Cohort 5</Link>
               </>
             )}
           </div>
@@ -346,7 +311,7 @@ export default function BackToSchoolPage() {
                   </h3>
                 </div>
                 <p
-                  className="text-navy/68 text-sm leading-relaxed"
+                  className="text-gray-600 text-sm leading-relaxed"
                   style={{ fontFamily: "var(--font-nunito)", fontSize: "16px" }}
                 >
                   {approach.description}
@@ -370,13 +335,13 @@ export default function BackToSchoolPage() {
             className="text-white/60 text-base leading-relaxed mb-8"
             style={{ fontFamily: "var(--font-nunito)" }}
           >
-            Every contribution helps us cover another child&apos;s school fees, provide their books,
+            Every contribution helps us cover another child's school fees, provide their books,
             and make sure they show up tomorrow — and every day after that.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               href="/volunteer"
-              className="px-8 py-3 bg-orange hover:bg-orange-dark text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
+              className="px-8 py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-orange/30 hover:-translate-y-0.5 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Volunteer With Us

@@ -2,7 +2,7 @@ import type { Program } from "@/types/program"
 
 export const programs: Program[] = [
   {
-    slug: "english-enhancement",
+    slug: "english-enhancement-program",
     title: "English Enhancement Program",
     shortDescription:
       "Strengthening English literacy, communication, and critical thinking for primary students at EP Kirambo.",
@@ -61,7 +61,7 @@ export const programs: Program[] = [
     ],
     whoBenefits:
       "23 students across 7 schools in Burera District. Students are selected based on financial need and academic potential.",
-    heroImage: "/images/programs/bts-hero.jpg",
+    heroImage: undefined,
     galleryImages: [],
     status: "active",
     impactStats: [
@@ -93,7 +93,7 @@ export const programs: Program[] = [
     ],
     whoBenefits:
       "15 parents and 2 ECD centres in Bugesera District. Families are selected based on nutritional vulnerability and commitment to participating in training.",
-    heroImage: "/images/programs/ohpc-hero.jpg",
+    heroImage: undefined,
     galleryImages: [],
     status: "active",
     impactStats: [
