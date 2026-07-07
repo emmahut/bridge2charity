@@ -272,7 +272,7 @@ export default function Navigation() {
                   whiteSpace: "nowrap",
                 }}
               >
-                <Heart size={14} fill="white" stroke="none" />
+                <Heart size={15} color="white" strokeWidth={2.2} />
                 Donate
               </Link>
               <button
@@ -440,7 +440,7 @@ export default function Navigation() {
               fontFamily: "var(--font-montserrat)",
             }}
           >
-            <Heart size={14} fill="white" stroke="none" />
+            <Heart size={15} color="white" strokeWidth={2.2} />
             Donate
           </Link>
         </div>
