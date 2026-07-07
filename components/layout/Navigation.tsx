@@ -220,8 +220,11 @@ export default function Navigation() {
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            style={{ fontFamily: "var(--font-jakarta)" }}
-                            className="flex items-center px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-150 border-b border-white/5 last:border-0"
+                            style={{
+                              fontFamily: "var(--font-jakarta)",
+                              ...(sub.href === "/volunteer" ? { color: "#C2410C", fontWeight: 600 } : {}),
+                            }}
+                            className="flex items-center px-4 py-3 text-sm hover:text-white hover:bg-white/10 transition-colors duration-150 border-b border-white/5 last:border-0"
                           >
                             {sub.label}
                           </Link>
@@ -401,7 +404,11 @@ export default function Navigation() {
                           key={sub.href}
                           href={sub.href}
                           className="flex items-center px-3 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
-                          style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-jakarta)" }}
+                          style={{
+                            color: sub.href === "/volunteer" ? "#C2410C" : "rgba(255,255,255,0.7)",
+                            fontWeight: sub.href === "/volunteer" ? 600 : 400,
+                            fontFamily: "var(--font-jakarta)",
+                          }}
                         >
                           {sub.label}
                         </Link>
