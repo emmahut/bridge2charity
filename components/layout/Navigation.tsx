@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown, Heart } from "lucide-react"
+import { Menu, X, ChevronDown, HeartHandshake } from "lucide-react"
 
 type DropdownKey = "about" | "programs" | "getInvolved"
 
@@ -262,17 +262,17 @@ export default function Navigation() {
                 className="hidden sm:inline-flex items-center hover:opacity-90 transition-opacity"
                 style={{
                   backgroundColor: "#C9601C",
-                  borderRadius: "999px",
-                  padding: "8px 20px",
+                  borderRadius: "10px",
+                  padding: "9px 20px",
                   color: "white",
                   fontWeight: 700,
                   fontSize: 14,
                   fontFamily: "var(--font-montserrat)",
-                  gap: 7,
+                  gap: 8,
                   whiteSpace: "nowrap",
                 }}
               >
-                <Heart size={15} color="white" strokeWidth={2.2} />
+                <HeartHandshake size={17} color="white" strokeWidth={2} />
                 Donate
               </Link>
               <button
@@ -433,14 +433,15 @@ export default function Navigation() {
         <div className="px-6 py-6 border-t border-white/10">
           <Link
             href="/donate"
-            className="flex items-center justify-center w-full py-3 gap-2 font-bold rounded-full hover:opacity-90 transition-opacity"
+            className="flex items-center justify-center w-full py-3 gap-2 font-bold hover:opacity-90 transition-opacity"
             style={{
               backgroundColor: "#C9601C",
+              borderRadius: "10px",
               color: "white",
               fontFamily: "var(--font-montserrat)",
             }}
           >
-            <Heart size={15} color="white" strokeWidth={2.2} />
+            <HeartHandshake size={17} color="white" strokeWidth={2} />
             Donate
           </Link>
         </div>
