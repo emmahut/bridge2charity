@@ -29,28 +29,42 @@ function StatCard({ stat, triggered }: { stat: typeof impactStats[0]; triggered:
   const count = useCountUp(stat.value, 2000, triggered)
 
   return (
-    <div className="text-center group">
-      <div className="relative inline-flex items-center justify-center mb-4">
-        <div className="w-24 h-24 rounded-full bg-orange/10 group-hover:bg-orange/20 transition-colors duration-300" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span
-            className="text-3xl font-bold text-orange"
-            style={{ fontFamily: "var(--font-montserrat)" }}
-          >
-            {count}
-            {stat.suffix ?? "+"}
-          </span>
-        </div>
+    <div
+      className="flex flex-col items-center text-center rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+      style={{
+        backgroundColor: "rgba(255,255,255,0.05)",
+        border: "1px solid rgba(255,255,255,0.08)",
+      }}
+    >
+      {/* Number circle */}
+      <div
+        className="flex items-center justify-center rounded-full mb-5 flex-shrink-0"
+        style={{
+          width: 88,
+          height: 88,
+          backgroundColor: "rgba(201,96,28,0.18)",
+        }}
+      >
+        <span
+          className="text-3xl font-bold"
+          style={{ color: "#f16927", fontFamily: "var(--font-montserrat)" }}
+        >
+          {count}{stat.suffix ?? "+"}
+        </span>
       </div>
+
+      {/* Label */}
       <h3
-        className="text-white font-semibold text-base mb-2"
+        className="text-white font-bold text-base leading-snug mb-2"
         style={{ fontFamily: "var(--font-jakarta)" }}
       >
         {stat.label}
       </h3>
+
+      {/* Description */}
       {stat.description && (
         <p
-          className="text-white/50 text-xs leading-relaxed max-w-40 mx-auto"
+          className="text-white/45 text-xs leading-relaxed"
           style={{ fontFamily: "var(--font-nunito)" }}
         >
           {stat.description}
@@ -108,7 +122,7 @@ export default function ImpactNumbers() {
         </p>
       </div>
 
-      <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+      <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
         {impactStats.map((stat) => (
           <StatCard key={stat.id} stat={stat} triggered={triggered} />
         ))}
