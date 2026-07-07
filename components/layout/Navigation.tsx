@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronDown, Heart } from "lucide-react"
 
 type DropdownKey = "about" | "programs" | "getInvolved"
 
@@ -44,7 +44,6 @@ const navLinks: NavLink[] = [
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<DropdownKey | null>(null)
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState<DropdownKey | null>(null)
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -54,20 +53,12 @@ export default function Navigation() {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
     setOpenDropdown(key)
   }
-
   const closeDrop = () => {
     dropdownTimer.current = setTimeout(() => setOpenDropdown(null), 350)
   }
-
   const keepDrop = () => {
     if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
   }
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   useEffect(() => {
     setIsOpen(false)
@@ -88,28 +79,79 @@ export default function Navigation() {
 
   return (
     <>
+      {/* ── Fixed navbar ──────────────────────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-navy shadow-lg shadow-navy/20" : "bg-navy/95 backdrop-blur-sm"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50"
+        style={{ backgroundColor: "#050A30", height: "66px" }}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex items-center justify-between h-full">
 
-            {/* Logo */}
-            <Link href="/" className="flex items-center flex-shrink-0 py-2">
-              <Image
-                src="/images/logo/logo.png"
-                alt="Bridge2Charity Foundation"
-                width={120}
-                height={40}
-                className="h-10 w-auto object-contain mix-blend-screen"
-                priority
-              />
+            {/* ── Logo ───────────────────────────────────────────────────── */}
+            <Link href="/" className="flex items-center flex-shrink-0" style={{ gap: 10 }}>
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 8,
+                  overflow: "hidden",
+                  flexShrink: 0,
+                  backgroundColor: "rgba(255,255,255,0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Image
+                  src="/images/logo/icon.png"
+                  alt="B2C"
+                  width={40}
+                  height={40}
+                  style={{ objectFit: "contain", width: 40, height: 40 }}
+                  priority
+                />
+              </div>
+              <div className="flex flex-col" style={{ lineHeight: 1 }}>
+                <span
+                  style={{
+                    fontSize: 17,
+                    fontWeight: 700,
+                    color: "white",
+                    fontFamily: "var(--font-montserrat)",
+                    lineHeight: 1.25,
+                  }}
+                >
+                  Bridge2Charity
+                </span>
+                <span
+                  className="hidden md:block"
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 600,
+                    color: "rgba(255,255,255,0.55)",
+                    letterSpacing: "2px",
+                    textTransform: "uppercase",
+                    fontFamily: "var(--font-jakarta)",
+                    lineHeight: 1.3,
+                    marginTop: 3,
+                  }}
+                >
+                  Foundation
+                </span>
+              </div>
             </Link>
 
-            {/* Desktop nav */}
-            <div className="hidden lg:flex items-center gap-0.5">
+            {/* ── Center pill nav ────────────────────────────────────────── */}
+            <div
+              className="hidden lg:flex items-center"
+              style={{
+                backgroundColor: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.1)",
+                borderRadius: "999px",
+                padding: "4px",
+                gap: "2px",
+              }}
+            >
               {navLinks.map((link) => {
                 const active = isNavLinkActive(link)
 
@@ -123,26 +165,54 @@ export default function Navigation() {
                       onMouseLeave={closeDrop}
                     >
                       <button
-                        style={{ fontFamily: "var(--font-jakarta)" }}
-                        className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
-                          active
-                            ? "text-orange border-b-2 border-orange"
-                            : "text-white/90 hover:text-white hover:bg-white/10"
-                        }`}
+                        style={{
+                          backgroundColor: active ? "#C9601C" : "transparent",
+                          borderRadius: "999px",
+                          padding: "7px 15px",
+                          color: "white",
+                          fontSize: 14,
+                          fontWeight: active ? 600 : 500,
+                          display: "flex",
+                          alignItems: "center",
+                          gap: 4,
+                          fontFamily: "var(--font-jakarta)",
+                          whiteSpace: "nowrap",
+                          cursor: "pointer",
+                          border: "none",
+                          outline: "none",
+                          transition: "background-color 0.15s",
+                        }}
+                        className={!active ? "hover:bg-white/10 rounded-full" : ""}
                       >
                         {link.label}
                         <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-200 ${isDropOpen ? "rotate-180" : ""}`}
+                          size={13}
+                          style={{
+                            transition: "transform 0.2s",
+                            transform: isDropOpen ? "rotate(180deg)" : "rotate(0deg)",
+                          }}
                         />
                       </button>
 
+                      {/* Dropdown panel */}
                       <div
-                        className={`absolute top-full left-0 mt-1 w-56 bg-navy-light border border-white/10 rounded-xl shadow-xl shadow-navy/40 overflow-hidden transition-all duration-200 ${
-                          isDropOpen
-                            ? "opacity-100 translate-y-0 pointer-events-auto"
-                            : "opacity-0 -translate-y-2 pointer-events-none"
-                        }`}
+                        style={{
+                          position: "absolute",
+                          top: "calc(100% + 10px)",
+                          left: "50%",
+                          minWidth: 200,
+                          backgroundColor: "#0c1245",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                          borderRadius: 12,
+                          overflow: "hidden",
+                          boxShadow: "0 12px 40px rgba(0,0,0,0.5)",
+                          opacity: isDropOpen ? 1 : 0,
+                          pointerEvents: isDropOpen ? "auto" : "none",
+                          transform: isDropOpen
+                            ? "translateX(-50%) translateY(0)"
+                            : "translateX(-50%) translateY(-6px)",
+                          transition: "opacity 0.2s, transform 0.2s",
+                        }}
                         onMouseEnter={keepDrop}
                         onMouseLeave={closeDrop}
                       >
@@ -151,7 +221,7 @@ export default function Navigation() {
                             key={sub.href}
                             href={sub.href}
                             style={{ fontFamily: "var(--font-jakarta)" }}
-                            className="flex items-center px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-orange/20 transition-colors duration-150 border-b border-white/5 last:border-0"
+                            className="flex items-center px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors duration-150 border-b border-white/5 last:border-0"
                           >
                             {sub.label}
                           </Link>
@@ -165,12 +235,19 @@ export default function Navigation() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    style={{ fontFamily: "var(--font-jakarta)" }}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
-                      active
-                        ? "text-orange border-b-2 border-orange"
-                        : "text-white/90 hover:text-white hover:bg-white/10"
-                    }`}
+                    style={{
+                      backgroundColor: active ? "#C9601C" : "transparent",
+                      borderRadius: "999px",
+                      padding: "7px 15px",
+                      color: "white",
+                      fontSize: 14,
+                      fontWeight: active ? 600 : 500,
+                      fontFamily: "var(--font-jakarta)",
+                      whiteSpace: "nowrap",
+                      transition: "background-color 0.15s",
+                      display: "inline-block",
+                    }}
+                    className={!active ? "hover:bg-white/10" : ""}
                   >
                     {link.label}
                   </Link>
@@ -178,13 +255,24 @@ export default function Navigation() {
               })}
             </div>
 
-            {/* Donate button + mobile toggle */}
+            {/* ── Right: Donate + hamburger ──────────────────────────────── */}
             <div className="flex items-center gap-3">
               <Link
                 href="/donate"
-                style={{ fontFamily: "var(--font-montserrat)" }}
-                className="hidden sm:inline-flex items-center px-5 py-2 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
+                className="hidden sm:inline-flex items-center hover:opacity-90 transition-opacity"
+                style={{
+                  backgroundColor: "#C9601C",
+                  borderRadius: "999px",
+                  padding: "8px 20px",
+                  color: "white",
+                  fontWeight: 700,
+                  fontSize: 14,
+                  fontFamily: "var(--font-montserrat)",
+                  gap: 7,
+                  whiteSpace: "nowrap",
+                }}
               >
+                <Heart size={14} fill="white" stroke="none" />
                 Donate
               </Link>
               <button
@@ -199,7 +287,7 @@ export default function Navigation() {
         </nav>
       </header>
 
-      {/* Mobile backdrop */}
+      {/* ── Mobile backdrop ───────────────────────────────────────────────── */}
       {isOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden"
@@ -208,24 +296,65 @@ export default function Navigation() {
         />
       )}
 
-      {/* Mobile drawer */}
+      {/* ── Mobile drawer ─────────────────────────────────────────────────── */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-50 w-80 bg-navy flex flex-col lg:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-80 flex flex-col lg:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{ backgroundColor: "#050A30" }}
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-          <Image
-            src="/images/logo/icon.png"
-            alt="Bridge2Charity"
-            width={40}
-            height={40}
-            className="h-10 w-auto object-contain"
-          />
+          <div className="flex items-center" style={{ gap: 10 }}>
+            <div
+              style={{
+                width: 36,
+                height: 36,
+                borderRadius: 8,
+                overflow: "hidden",
+                flexShrink: 0,
+                backgroundColor: "rgba(255,255,255,0.06)",
+              }}
+            >
+              <Image
+                src="/images/logo/icon.png"
+                alt="Bridge2Charity"
+                width={36}
+                height={36}
+                style={{ objectFit: "contain", width: 36, height: 36 }}
+              />
+            </div>
+            <div className="flex flex-col" style={{ lineHeight: 1 }}>
+              <span
+                style={{
+                  fontSize: 15,
+                  fontWeight: 700,
+                  color: "white",
+                  fontFamily: "var(--font-montserrat)",
+                  lineHeight: 1.25,
+                }}
+              >
+                Bridge2Charity
+              </span>
+              <span
+                style={{
+                  fontSize: 9,
+                  fontWeight: 600,
+                  color: "rgba(255,255,255,0.5)",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                  fontFamily: "var(--font-jakarta)",
+                  lineHeight: 1.3,
+                  marginTop: 3,
+                }}
+              >
+                Foundation
+              </span>
+            </div>
+          </div>
           <button
             onClick={() => setIsOpen(false)}
             className="p-2 text-white hover:bg-white/10 rounded-md transition-colors"
@@ -246,25 +375,33 @@ export default function Navigation() {
                 <div key={link.href}>
                   <button
                     onClick={() => setMobileOpenDropdown(mobileOpen ? null : link.dropdownKey!)}
-                    className={`flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
-                      active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
-                    }`}
-                    style={{ fontFamily: "var(--font-jakarta)" }}
+                    className="flex items-center justify-between w-full px-4 py-3 text-base font-medium rounded-full transition-colors duration-200"
+                    style={{
+                      backgroundColor: active ? "#C9601C" : "transparent",
+                      color: "white",
+                      fontFamily: "var(--font-jakarta)",
+                    }}
                   >
                     {link.label}
                     <ChevronDown
                       size={16}
-                      className={`transition-transform duration-200 ${mobileOpen ? "rotate-180" : ""}`}
+                      style={{
+                        transition: "transform 0.2s",
+                        transform: mobileOpen ? "rotate(180deg)" : "rotate(0deg)",
+                      }}
                     />
                   </button>
                   {mobileOpen && (
-                    <div className="ml-4 mt-1 space-y-1 border-l-2 border-orange/30 pl-3">
+                    <div
+                      className="ml-4 mt-1 space-y-1 border-l-2 pl-3"
+                      style={{ borderColor: "rgba(201,96,28,0.35)" }}
+                    >
                       {link.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
-                          className="flex items-center px-3 py-2 text-sm text-white/70 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
-                          style={{ fontFamily: "var(--font-jakarta)" }}
+                          className="flex items-center px-3 py-2 text-sm rounded-lg hover:bg-white/10 transition-colors"
+                          style={{ color: "rgba(255,255,255,0.7)", fontFamily: "var(--font-jakarta)" }}
                         >
                           {sub.label}
                         </Link>
@@ -279,10 +416,12 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200 ${
-                  active ? "bg-orange/20 text-orange" : "text-white/90 hover:bg-white/10 hover:text-white"
-                }`}
-                style={{ fontFamily: "var(--font-jakarta)" }}
+                className="flex items-center px-4 py-3 text-base font-medium rounded-full transition-colors duration-200"
+                style={{
+                  backgroundColor: active ? "#C9601C" : "transparent",
+                  color: "white",
+                  fontFamily: "var(--font-jakarta)",
+                }}
               >
                 {link.label}
               </Link>
@@ -294,9 +433,14 @@ export default function Navigation() {
         <div className="px-6 py-6 border-t border-white/10">
           <Link
             href="/donate"
-            style={{ fontFamily: "var(--font-montserrat)" }}
-            className="flex items-center justify-center w-full py-3 bg-orange hover:bg-orange-light text-white font-bold rounded-lg transition-colors duration-200"
+            className="flex items-center justify-center w-full py-3 gap-2 font-bold rounded-full hover:opacity-90 transition-opacity"
+            style={{
+              backgroundColor: "#C9601C",
+              color: "white",
+              fontFamily: "var(--font-montserrat)",
+            }}
           >
+            <Heart size={14} fill="white" stroke="none" />
             Donate
           </Link>
         </div>
