@@ -261,7 +261,7 @@ export default function Navigation() {
                 href="/donate"
                 className="hidden sm:inline-flex items-center hover:opacity-90 transition-opacity"
                 style={{
-                  backgroundColor: "#C9601C",
+                  backgroundColor: "#C2410C",
                   borderRadius: "10px",
                   padding: "9px 20px",
                   color: "white",
@@ -435,7 +435,7 @@ export default function Navigation() {
             href="/donate"
             className="flex items-center justify-center w-full py-3 gap-2 font-bold hover:opacity-90 transition-opacity"
             style={{
-              backgroundColor: "#C9601C",
+              backgroundColor: "#C2410C",
               borderRadius: "10px",
               color: "white",
               fontFamily: "var(--font-montserrat)",
