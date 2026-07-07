@@ -189,8 +189,8 @@ export default function Footer() {
         <div className="mt-12 flex justify-center">
           <Link
             href="/donate"
-            className="inline-flex items-center px-8 py-3 bg-orange hover:bg-orange-light text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5"
-            style={{ fontFamily: "var(--font-montserrat)" }}
+            className="inline-flex items-center px-8 py-3 text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:scale-95"
+            style={{ fontFamily: "var(--font-montserrat)", backgroundColor: "#C2410C" }}
           >
             Invest In B2C
           </Link>

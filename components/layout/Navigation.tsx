@@ -259,7 +259,7 @@ export default function Navigation() {
             <div className="flex items-center gap-3">
               <Link
                 href="/donate"
-                className="hidden sm:inline-flex items-center hover:opacity-90 transition-opacity"
+                className="hidden sm:inline-flex items-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 active:translate-y-0"
                 style={{
                   backgroundColor: "#C2410C",
                   borderRadius: "10px",
