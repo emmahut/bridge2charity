@@ -1,5 +1,4 @@
 import Button from "@/components/ui/Button"
-import Link from "next/link"
 import { Heart } from "lucide-react"
 
 export default function VolunteerCTA() {
@@ -30,17 +29,9 @@ export default function VolunteerCTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            href="/volunteer"
-            className="inline-flex items-center justify-center font-bold rounded-lg transition-all duration-200 px-8 py-4 text-base hover:-translate-y-0.5 active:scale-95 hover:shadow-lg"
-            style={{
-              backgroundColor: "#C2410C",
-              color: "white",
-              fontFamily: "var(--font-montserrat)",
-            }}
-          >
+          <Button href="/volunteer" variant="primary" size="lg">
             Become a Volunteer
-          </Link>
+          </Button>
           <Button
             href="/contact"
             variant="outline"
