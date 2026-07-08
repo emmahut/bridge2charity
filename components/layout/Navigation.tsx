@@ -28,7 +28,7 @@ const programsDropdown = [
 ]
 
 const getInvolvedDropdown = [
-  { label: "Support a Student", href: "/donate" },
+  { label: "Support Us", href: "/donate" },
   { label: "Become a Volunteer", href: "/volunteer" },
   { label: "Join the Team", href: "/join" },
   { label: "Contact Us", href: "/contact" },
