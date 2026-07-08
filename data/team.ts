@@ -181,7 +181,7 @@ export const teamMembers: TeamMember[] = [
     lastName: "Impundu",
     role: "Health Counselor Lead & OHPC Associate",
     email: "impunduinnocente@gmail.com",
-    bio: "Innocent is driven by a vision of building a future where quality healthcare, compassionate patient care, and innovative leadership work together to transform lives. As a Healthcare Assistant at King Faisal Hospital Rwanda and an Entrepreneurial Leadership student at African Leadership University, I combine hands-on clinical experience with a passion for community impact and problem-solving. Her lies at the intersection of healthcare, innovation, leadership, and social impact, where I strive to improve lives through quality patient care and community-driven solutions.",
+    bio: "Innocent is driven by a vision of building a future where quality healthcare, compassionate patient care, and innovative leadership work together to transform lives. As a Healthcare Assistant at King Faisal Hospital Rwanda and an Entrepreneurial Leadership student at African Leadership University, She combines hands-on clinical experience with a passion for community impact and problem-solving. Innocent lies at the intersection of healthcare, innovation, leadership, and social impact, where she strives to improve lives through quality patient care and community-driven solutions.",
     photo: "/images/team/innocent-impundu.jpg",
     initials: "II",
     category: "ohpc",
