@@ -103,7 +103,7 @@ export default function VolunteerPage() {
         style={{ minHeight: "70vh", backgroundColor: "#050A30", padding: "80px 24px" }}
       >
         <Image
-          src="/images/pages/support/support-hero.jpg"
+          src="/images/pages/volunteer-hero.jpg"
           alt=""
           fill
           className="object-cover object-center"
