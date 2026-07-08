@@ -110,7 +110,7 @@ export default function MissionSection() {
                 return (
                   <div
                     key={value.title}
-                    className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-md border border-navy/5 hover:border-orange/20 transition-all duration-300"
+                    className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:scale-[1.02] border border-navy/5 hover:border-orange/20 transition-all duration-300"
                   >
                     <div className="w-12 h-12 rounded-xl bg-orange/10 group-hover:bg-orange/20 flex items-center justify-center mb-4 transition-colors duration-300">
                       <Icon size={22} className="text-orange" />

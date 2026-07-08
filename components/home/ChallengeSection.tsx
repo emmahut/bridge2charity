@@ -63,7 +63,7 @@ export default function ChallengeSection() {
           return (
             <div
               key={challenge.title}
-              className={`group rounded-2xl border bg-white/5 backdrop-blur-sm p-8 hover:bg-white/10 transition-all duration-300 ${challenge.borderColor}`}
+              className={`group rounded-2xl border bg-white/5 backdrop-blur-sm p-8 hover:bg-white/10 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 ${challenge.borderColor}`}
             >
               {/* Icon */}
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${challenge.iconColor}`}>

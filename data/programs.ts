@@ -61,7 +61,7 @@ export const programs: Program[] = [
     ],
     whoBenefits:
       "23 students across 7 schools in Burera District. Students are selected based on financial need and academic potential.",
-    heroImage: undefined,
+    heroImage: "/images/programs/bts-meet-students.jpg",
     galleryImages: [],
     status: "active",
     impactStats: [
@@ -93,7 +93,7 @@ export const programs: Program[] = [
     ],
     whoBenefits:
       "15 parents and 2 ECD centres in Bugesera District. Families are selected based on nutritional vulnerability and commitment to participating in training.",
-    heroImage: undefined,
+    heroImage: "/images/programs/ohpc-hero.jpg",
     galleryImages: [],
     status: "active",
     impactStats: [
