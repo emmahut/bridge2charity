@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Briefcase } from "lucide-react"
@@ -75,10 +75,25 @@ export default function JoinPageClient() {
     <div>
       {/* ── SECTION 1: Hero with Animated Text ────────────────────── */}
       <section
-        className="flex flex-col items-center justify-center text-center"
+        className="relative flex flex-col items-center justify-center text-center"
         style={{ minHeight: "85vh", backgroundColor: "#050A30", padding: "80px 24px" }}
       >
-        <div className="max-w-4xl mx-auto">
+        <Image
+          src="/images/pages/join-hero.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          style={{ opacity: 0.18 }}
+          priority
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(to bottom, rgba(5,10,48,0.4), rgba(5,10,48,0.85))",
+          }}
+        />
+        <div className="relative z-10 max-w-4xl mx-auto">
           <h1
             style={{
               color: "#ffffff",
