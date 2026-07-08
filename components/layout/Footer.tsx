@@ -1,7 +1,10 @@
+"use client"
+
 import Link from "next/link"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { usePathname } from "next/navigation"
 
-const quickLinks = [
+const allQuickLinks = [
   { label: "Home", href: "/" },
   { label: "Volunteer", href: "/volunteer" },
   { label: "About", href: "/about" },
@@ -12,6 +15,9 @@ const quickLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ]
 
+const NO_INVEST_PAGES = ["/donate", "/volunteer", "/join", "/contact"]
+const NO_VOLUNTEER_LINKS = ["/contact"]
+
 const programs = [
   { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
   { label: "Back to School", href: "/programs/back-to-school" },
@@ -19,6 +25,11 @@ const programs = [
 ]
 
 export default function Footer() {
+  const pathname = usePathname()
+  const hideInvest = NO_INVEST_PAGES.includes(pathname)
+  const quickLinks = NO_VOLUNTEER_LINKS.includes(pathname)
+    ? allQuickLinks.filter((l) => l.label !== "Volunteer")
+    : allQuickLinks
   const currentYear = new Date().getFullYear()
 
   return (
@@ -185,16 +196,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Centered Invest In B2C CTA */}
-        <div className="mt-12 flex justify-center">
-          <Link
-            href="/donate"
-            className="inline-flex items-center px-8 py-3 text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:scale-95"
-            style={{ fontFamily: "var(--font-montserrat)", backgroundColor: "#C2410C" }}
-          >
-            Invest In B2C
-          </Link>
-        </div>
+        {/* Centered Invest In B2C CTA — hidden on donate/volunteer/join/contact pages */}
+        {!hideInvest && (
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/donate"
+              className="inline-flex items-center px-8 py-3 text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:scale-95"
+              style={{ fontFamily: "var(--font-montserrat)", backgroundColor: "#C2410C" }}
+            >
+              Invest In B2C
+            </Link>
+          </div>
+        )}
 
         {/* Bottom bar */}
         <div className="mt-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
