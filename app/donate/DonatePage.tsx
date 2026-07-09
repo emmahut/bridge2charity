@@ -258,7 +258,7 @@ export default function DonatePage() {
       </section>
 
       {/* ── Our Current Needs ──────────────────────────────────────── */}
-      <section id="current-needs" style={{ backgroundColor: "#FBF6F0", padding: "80px 24px" }}>
+      <section id="current-needs" style={{ backgroundColor: "#FBF6F0", padding: "56px 24px" }}>
         <div className="max-w-3xl mx-auto text-center">
           <p
             style={{
@@ -316,7 +316,7 @@ export default function DonatePage() {
       </section>
 
       {/* ── Interested in Learning More ────────────────────────────── */}
-      <section style={{ backgroundColor: "#050A30", padding: "80px 24px", textAlign: "center" }}>
+      <section style={{ backgroundColor: "#050A30", padding: "56px 24px", textAlign: "center" }}>
         <div className="max-w-2xl mx-auto">
           <p
             style={{
