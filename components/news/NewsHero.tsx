@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function NewsHero() {
   return (
     <section className="bg-white py-[60px]">
@@ -25,6 +27,17 @@ export default function NewsHero() {
           Program milestones, student moments, and community updates from the people building
           practical changes across Rwanda.
         </p>
+
+        <div className="relative mx-auto mt-10 aspect-[2.24/1] w-full max-w-[900px] overflow-hidden rounded-2xl border border-navy/8 shadow-sm">
+          <Image
+            src="/images/pages/news-hero.jpg"
+            alt="Bridge2Charity field update"
+            fill
+            className="object-cover"
+            sizes="(min-width: 1024px) 900px, 100vw"
+            priority
+          />
+        </div>
       </div>
     </section>
   )
