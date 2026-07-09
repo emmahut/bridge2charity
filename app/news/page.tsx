@@ -49,7 +49,7 @@ export default function NewsPage() {
 
   return (
     <main className="bg-cream">
-      <section className="relative overflow-hidden bg-navy py-16 text-white lg:py-24">
+      <section className="relative overflow-hidden bg-navy py-10 text-white lg:py-14">
         <div
           aria-hidden="true"
           className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] bg-[size:56px_56px]"
