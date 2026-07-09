@@ -5,7 +5,7 @@ import { programs } from "@/data/programs"
 
 export default function ProgramsOverview() {
   return (
-    <section className="py-10 lg:py-14 bg-white" id="programs">
+    <section className="pt-6 pb-10 lg:pt-8 lg:pb-14 bg-white" id="programs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2

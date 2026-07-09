@@ -35,7 +35,7 @@ const challenges = [
 
 export default function ChallengeSection() {
   return (
-    <section className="py-12 lg:py-16 bg-navy" id="challenge">
+    <section className="pt-8 pb-12 lg:pt-10 lg:pb-16 bg-navy" id="challenge">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="mb-14 text-center">
         <h2

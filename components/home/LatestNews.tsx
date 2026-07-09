@@ -28,7 +28,7 @@ export default function LatestNews() {
   const latest = newsArticles.slice(0, 3)
 
   return (
-    <section className="bg-cream py-16 lg:py-24" id="news">
+    <section className="bg-cream py-10 lg:py-14" id="news">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section label */}
         <div className="mb-4 flex items-center justify-center gap-3">
