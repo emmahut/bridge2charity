@@ -15,8 +15,8 @@ const allQuickLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
 ]
 
-const NO_INVEST_PAGES = ["/donate", "/volunteer", "/join", "/contact"]
-const NO_VOLUNTEER_LINKS = ["/contact"]
+const NO_INVEST_PAGES = ["/donate", "/volunteer", "/join", "/contact", "/news"]
+const NO_VOLUNTEER_LINKS = ["/contact", "/news"]
 
 const programs = [
   { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
