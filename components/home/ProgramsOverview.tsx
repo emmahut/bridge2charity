@@ -7,17 +7,6 @@ export default function ProgramsOverview() {
   return (
     <section className="py-10 lg:py-14 bg-white" id="programs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section label */}
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="h-px w-8 bg-orange" />
-          <span
-            className="text-orange text-sm font-semibold tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-jakarta)" }}
-          >
-            What We Do
-          </span>
-        </div>
-
         <div className="text-center mb-14">
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl text-navy font-bold leading-tight mb-6"

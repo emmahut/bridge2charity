@@ -95,17 +95,6 @@ export default function ImpactNumbers() {
   return (
     <section className="py-12 lg:py-16 bg-navy" id="impact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section label */}
-      <div className="flex items-center justify-center gap-3 mb-4">
-        <div className="h-px w-8 bg-orange" />
-        <span
-          className="text-orange text-sm font-semibold tracking-widest uppercase"
-          style={{ fontFamily: "var(--font-jakarta)" }}
-        >
-          Our Impact
-        </span>
-      </div>
-
       <div className="mb-16 text-center">
         <h2
           className="text-3xl sm:text-4xl lg:text-5xl text-white font-bold leading-tight mb-4"
