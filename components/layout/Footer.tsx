@@ -1,35 +1,35 @@
 "use client"
 
 import Link from "next/link"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { Mail, MapPin, Phone, Check } from "lucide-react"
 import { usePathname } from "next/navigation"
 
-const allQuickLinks = [
+const primaryLinks = [
   { label: "Home", href: "/" },
-  { label: "Volunteer", href: "/volunteer" },
   { label: "About", href: "/about" },
+  { label: "Volunteer", href: "/volunteer" },
+  { label: "Join The Team", href: "/join" },
+]
+
+const programLinks = [
+  { label: "Back To School", href: "/programs/back-to-school" },
+  { label: "One Hen Per Child", href: "/programs/one-hen-per-child" },
+  { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
   { label: "News", href: "/news" },
-  { label: "Programs", href: "/programs" },
-  { label: "Contact", href: "/contact" },
-  { label: "Impact", href: "/impact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
 ]
 
 const NO_INVEST_PAGES = ["/donate", "/volunteer", "/join", "/contact", "/news"]
 const NO_VOLUNTEER_LINKS = ["/contact", "/news"]
 
-const programs = [
-  { label: "English Enhancement Program", href: "/programs/english-enhancement-program" },
-  { label: "Back to School", href: "/programs/back-to-school" },
-  { label: "One Hen Per Child", href: "/programs/one-hen-per-child" },
-]
+const navLinkClass =
+  "uppercase text-[13px] font-bold tracking-wide text-orange hover:text-white transition-colors duration-200"
 
 export default function Footer() {
   const pathname = usePathname()
   const hideInvest = NO_INVEST_PAGES.includes(pathname)
-  const quickLinks = NO_VOLUNTEER_LINKS.includes(pathname)
-    ? allQuickLinks.filter((l) => l.label !== "Volunteer")
-    : allQuickLinks
+  const links = NO_VOLUNTEER_LINKS.includes(pathname)
+    ? primaryLinks.filter((l) => l.label !== "Volunteer")
+    : primaryLinks
   const currentYear = new Date().getFullYear()
 
   return (
@@ -37,30 +37,103 @@ export default function Footer() {
       <div className="h-1 bg-gradient-to-r from-orange via-olive to-orange" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Contact info — icon rows, no heading */}
+          <div>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <Mail size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-orange" />
+                <a
+                  href="mailto:bridge2char@gmail.com"
+                  className="text-sm font-bold text-white transition-colors hover:text-orange"
+                  style={{ fontFamily: "var(--font-nunito)" }}
+                >
+                  bridge2char@gmail.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-orange" />
+                <div
+                  className="space-y-1 text-sm font-bold text-white"
+                  style={{ fontFamily: "var(--font-nunito)" }}
+                >
+                  <a href="tel:+250799311463" className="block transition-colors hover:text-orange">
+                    +250 799 311 463
+                  </a>
+                  <a href="tel:+250786270684" className="block transition-colors hover:text-orange">
+                    +250 786 270 684
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-orange" />
+                <span
+                  className="text-sm font-bold text-white"
+                  style={{ fontFamily: "var(--font-nunito)" }}
+                >
+                  KK 737 St, Kigali, Rwanda
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-orange" />
+                <span
+                  className="text-sm font-bold text-white"
+                  style={{ fontFamily: "var(--font-nunito)" }}
+                >
+                  Powered by Bridge2Charity
+                </span>
+              </li>
+            </ul>
+          </div>
 
-          {/* Brand column — no logo, description + social only */}
-          <div className="lg:col-span-1">
-            <p
-              className="text-white/70 text-sm leading-relaxed mb-5"
-              style={{ fontFamily: "var(--font-nunito)" }}
-            >
-              Improving primary students&apos; lives through sustainable community initiatives in Rwanda.
-            </p>
-            <p
-              className="text-cream/60 text-xs font-medium tracking-wide uppercase"
-              style={{ fontFamily: "var(--font-dm-sans)" }}
-            >
-              Registered Non-Profit Organisation
-            </p>
+          {/* Primary links — no heading */}
+          <div>
+            <ul className="space-y-3">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={navLinkClass}
+                    style={{ fontFamily: "var(--font-montserrat)" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Social icons */}
-            <div className="flex items-center gap-3 mt-5">
+          {/* Program links — no heading */}
+          <div>
+            <ul className="space-y-3">
+              {programLinks.map((p) => (
+                <li key={p.href}>
+                  <Link
+                    href={p.href}
+                    className={navLinkClass}
+                    style={{ fontFamily: "var(--font-montserrat)" }}
+                  >
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Follow Us */}
+          <div>
+            <h3
+              className="mb-5 text-xl font-extrabold text-white"
+              style={{ fontFamily: "var(--font-montserrat)" }}
+            >
+              Follow Us
+            </h3>
+            <div className="flex items-center gap-3">
               <a
                 href="https://www.instagram.com/bridge2charity/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 hover:bg-orange rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-white/10 p-2 transition-colors duration-200 hover:bg-orange"
                 aria-label="Bridge2Charity on Instagram"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,7 +146,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/bridge2charity"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 hover:bg-orange rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-white/10 p-2 transition-colors duration-200 hover:bg-orange"
                 aria-label="Bridge2Charity on LinkedIn"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -86,7 +159,7 @@ export default function Footer() {
                 href="https://x.com/bridge2charity/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 hover:bg-orange rounded-lg transition-colors duration-200"
+                className="rounded-lg bg-white/10 p-2 transition-colors duration-200 hover:bg-orange"
                 aria-label="Bridge2Charity on X"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -95,113 +168,14 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
-          {/* Quick Links — two-column internal grid */}
-          <div>
-            <h3
-              className="text-white font-semibold text-lg mb-6"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Quick Links
-            </h3>
-            <div className="grid grid-cols-2 gap-y-3 gap-x-6">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-cream/80 hover:text-cream hover:underline decoration-orange text-[13px] font-medium leading-[1.8] transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-montserrat)" }}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Programs */}
-          <div>
-            <h3
-              className="text-white font-semibold text-lg mb-6"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Our Programs
-            </h3>
-            <ul className="space-y-3">
-              {programs.map((p) => (
-                <li key={p.href}>
-                  <Link
-                    href={p.href}
-                    className="text-white/70 hover:text-orange text-sm transition-colors duration-200"
-                    style={{ fontFamily: "var(--font-nunito)" }}
-                  >
-                    {p.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact info */}
-          <div>
-            <h3
-              className="text-white font-semibold text-lg mb-6"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Get in Touch
-            </h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-orange mt-0.5 flex-shrink-0" />
-                <span
-                  className="text-white/70 text-sm"
-                  style={{ fontFamily: "var(--font-nunito)" }}
-                >
-                  KK 737 St, Kigali, Rwanda
-                </span>
-              </li>
-              <li className="flex items-start gap-3">
-                <Phone size={16} className="text-orange mt-0.5 flex-shrink-0" />
-                <div
-                  className="text-white/70 text-sm space-y-1"
-                  style={{ fontFamily: "var(--font-nunito)" }}
-                >
-                  <a href="tel:+250799311463" className="block hover:text-orange transition-colors">
-                    +250 799 311 463
-                  </a>
-                  <a href="tel:+250786270684" className="block hover:text-orange transition-colors">
-                    +250 786 270 684
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail size={16} className="text-orange mt-0.5 flex-shrink-0" />
-                <a
-                  href="mailto:bridge2char@gmail.com"
-                  className="text-white/70 hover:text-orange text-sm transition-colors"
-                  style={{ fontFamily: "var(--font-nunito)" }}
-                >
-                  bridge2char@gmail.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Clock size={16} className="text-orange mt-0.5 flex-shrink-0" />
-                <span
-                  className="text-white/70 text-sm"
-                  style={{ fontFamily: "var(--font-nunito)" }}
-                >
-                  Monday – Friday
-                </span>
-              </li>
-            </ul>
-          </div>
         </div>
 
-        {/* Centered Invest In B2C CTA — hidden on donate/volunteer/join/contact pages */}
+        {/* Invest In B2C CTA — hidden on donate/volunteer/join/contact/news pages */}
         {!hideInvest && (
-          <div className="mt-12 flex justify-center">
+          <div className="mt-6 flex justify-center">
             <Link
               href="/donate"
-              className="inline-flex items-center px-8 py-3 text-white text-sm font-bold rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5 active:scale-95"
+              className="inline-flex items-center rounded-lg px-8 py-3 text-sm font-bold uppercase tracking-wide text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-orange/30 active:scale-95"
               style={{ fontFamily: "var(--font-montserrat)", backgroundColor: "#C2410C" }}
             >
               Invest In B2C
@@ -210,18 +184,12 @@ export default function Footer() {
         )}
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 border-t border-white/10 pt-5">
           <p
-            className="text-white/50 text-sm text-center sm:text-left"
+            className="text-xs text-white/50"
             style={{ fontFamily: "var(--font-nunito)" }}
           >
             © {currentYear} Bridge2Charity Foundation. All rights reserved.
-          </p>
-          <p
-            className="text-white/40 text-xs"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
-          >
-            Built with purpose — for Rwanda&apos;s future.
           </p>
         </div>
       </div>
