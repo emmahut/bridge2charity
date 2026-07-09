@@ -175,15 +175,15 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 2: Program Introduction (no visible title) ─────── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#ffffff", padding: "56px 24px" }}>
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div>
             <h2
               style={{
                 color: "#050A30",
-                fontSize: "clamp(26px, 3.5vw, 36px)",
+                fontSize: "clamp(18px, 1.6vw, 20px)",
                 fontWeight: 800,
-                lineHeight: 1.3,
+                lineHeight: 1.75,
                 fontFamily: "var(--font-montserrat)",
               }}
             >
