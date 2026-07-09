@@ -212,7 +212,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 3: Opportunities to Serve ─────────────────────── */}
-      <section style={{ backgroundColor: "#FBF6F0", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#FBF6F0", padding: "56px 24px" }}>
         <div className="max-w-5xl mx-auto">
           <p
             style={{
@@ -231,14 +231,13 @@ export default function VolunteerPage() {
           <h2
             style={{
               color: "#050A30",
-              fontSize: "clamp(26px, 3.5vw, 38px)",
+              fontSize: "clamp(20px, 2.2vw, 24px)",
               fontWeight: 800,
-              lineHeight: 1.3,
+              lineHeight: 1.5,
               textAlign: "center",
-              marginBottom: 48,
               fontFamily: "var(--font-montserrat)",
               maxWidth: 720,
-              margin: "0 auto 48px",
+              margin: "0 auto 40px",
             }}
           >
             Volunteers take an active role in meaningful work, gaining access to opportunities
@@ -277,15 +276,15 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 4: CTA Banner (no visible section title) ───────── */}
-      <section style={{ backgroundColor: "#050A30", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#050A30", padding: "56px 24px" }}>
         <div className="max-w-5xl mx-auto flex flex-col lg:flex-row items-center gap-10">
           <div style={{ flex: 1 }}>
             <h2
               style={{
                 color: "#ffffff",
-                fontSize: "clamp(26px, 3.5vw, 38px)",
+                fontSize: "clamp(20px, 2.2vw, 24px)",
                 fontWeight: 800,
-                lineHeight: 1.3,
+                lineHeight: 1.5,
                 marginBottom: 16,
                 fontFamily: "var(--font-montserrat)",
               }}
@@ -324,7 +323,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 5: Areas of Impact ─────────────────────────────── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#ffffff", padding: "56px 24px" }}>
         <div className="max-w-5xl mx-auto">
           <p
             style={{
@@ -343,11 +342,11 @@ export default function VolunteerPage() {
           <h2
             style={{
               color: "#050A30",
-              fontSize: "clamp(26px, 3.5vw, 38px)",
+              fontSize: "clamp(20px, 2.2vw, 24px)",
               fontWeight: 800,
-              lineHeight: 1.3,
+              lineHeight: 1.5,
               textAlign: "center",
-              marginBottom: 48,
+              marginBottom: 40,
               fontFamily: "var(--font-montserrat)",
             }}
           >
@@ -391,7 +390,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 6: Volunteer Eligibility ───────────────────────── */}
-      <section style={{ backgroundColor: "#FBF6F0", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#FBF6F0", padding: "56px 24px" }}>
         <div className="max-w-5xl mx-auto">
           <p
             style={{
@@ -410,13 +409,12 @@ export default function VolunteerPage() {
           <h2
             style={{
               color: "#050A30",
-              fontSize: "clamp(24px, 3vw, 36px)",
+              fontSize: "clamp(19px, 2vw, 22px)",
               fontWeight: 800,
-              lineHeight: 1.35,
+              lineHeight: 1.55,
               textAlign: "center",
-              marginBottom: 48,
               maxWidth: 780,
-              margin: "0 auto 48px",
+              margin: "0 auto 40px",
               fontFamily: "var(--font-montserrat)",
             }}
           >
@@ -462,7 +460,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 7: What You Gain ────────────────────────────────── */}
-      <section style={{ backgroundColor: "#ffffff", padding: "80px 24px" }}>
+      <section style={{ backgroundColor: "#ffffff", padding: "56px 24px" }}>
         <div className="max-w-3xl mx-auto">
           <p
             style={{
@@ -481,11 +479,11 @@ export default function VolunteerPage() {
           <h2
             style={{
               color: "#050A30",
-              fontSize: "clamp(26px, 3.5vw, 38px)",
+              fontSize: "clamp(20px, 2.2vw, 24px)",
               fontWeight: 800,
-              lineHeight: 1.3,
+              lineHeight: 1.5,
               textAlign: "center",
-              marginBottom: 40,
+              marginBottom: 32,
               fontFamily: "var(--font-montserrat)",
             }}
           >
@@ -507,7 +505,7 @@ export default function VolunteerPage() {
       </section>
 
       {/* ── SECTION 8: Final CTA ────────────────────────────────────── */}
-      <section style={{ backgroundColor: "#050A30", padding: "80px 24px", textAlign: "center" }}>
+      <section style={{ backgroundColor: "#050A30", padding: "56px 24px", textAlign: "center" }}>
         <div className="max-w-3xl mx-auto">
           <h2
             style={{
