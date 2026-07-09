@@ -7,10 +7,10 @@ export default function NewsHero() {
         src="/images/pages/news-hero.jpg"
         alt=""
         fill
-        className="object-cover object-center opacity-[0.18]"
+        className="object-cover object-center opacity-[0.42]"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-navy/40 to-navy/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/30 to-navy/75" />
 
       <div className="relative z-10 mx-auto max-w-2xl">
         <h1
