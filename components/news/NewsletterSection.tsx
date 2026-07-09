@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, type FormEvent } from "react"
-import Image from "next/image"
 import { CheckCircle2 } from "lucide-react"
 
 type NewsletterFormState = {
@@ -75,7 +74,7 @@ function NewsletterForm({ listName }: { listName: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-3">
       <FormField
         label="First Name"
         type="text"
@@ -94,34 +93,32 @@ function NewsletterForm({ listName }: { listName: string }) {
         value={form.email}
         onChange={(v) => setForm((f) => ({ ...f, email: v }))}
       />
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="w-full rounded-lg bg-orange px-4 py-3.5 text-sm font-bold text-white transition-all duration-150 hover:brightness-90 disabled:opacity-70"
-        style={{ fontFamily: "var(--font-jakarta)" }}
-      >
-        {status === "loading" ? "Subscribing..." : "Subscribe"}
-      </button>
+      <div>
+        <span
+          className="mb-1.5 block select-none text-sm font-bold text-transparent"
+          aria-hidden="true"
+        >
+          Subscribe
+        </span>
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="w-full rounded-md bg-orange px-3 py-3 text-[15px] font-bold text-white transition-all duration-150 hover:brightness-90 disabled:opacity-70"
+          style={{ fontFamily: "var(--font-jakarta)" }}
+        >
+          {status === "loading" ? "Subscribing..." : "Subscribe"}
+        </button>
+      </div>
     </form>
   )
 }
 
 export default function NewsletterSection() {
   return (
-    <section className="bg-cream py-12 lg:py-20">
+    <section className="bg-cream py-10 lg:py-14">
       <div className="mx-auto max-w-[1100px] px-4 sm:px-6 lg:px-8">
-        <div className="mb-4 flex items-center justify-center gap-3">
-          <div className="h-px w-8 bg-orange" />
-          <span
-            className="text-sm font-semibold uppercase tracking-[3px] text-orange"
-            style={{ fontFamily: "var(--font-jakarta)" }}
-          >
-            Stay Informed
-          </span>
-          <div className="h-px w-8 bg-orange" />
-        </div>
         <h2
-          className="mb-12 text-center text-3xl font-bold leading-tight text-navy sm:text-4xl"
+          className="mb-8 text-center text-3xl font-bold leading-tight text-navy sm:text-4xl"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
           Subscribe to B2C Newsletters
@@ -131,21 +128,7 @@ export default function NewsletterSection() {
           {/* ───────────────────────────────────────────────────────
               CARD 1 — B2C MONTHLY LETTER
           ─────────────────────────────────────────────────────── */}
-          <div className="w-full rounded-2xl border border-[#E5E5E5] bg-white p-10 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:max-w-[480px]">
-            {/* ─── PASTE B2C MONTHLY LETTER LOGO OR IMAGE HERE ─────────
-                Recommended size: roughly 280px wide, auto height.
-                Using the site logo for now — swap the src below for a
-                dedicated newsletter logo when one is ready.
-            ───────────────────────────────────────────────────────── */}
-            <div className="mb-6 flex justify-center">
-              <Image
-                src="/images/logo/newsletter-logo.png"
-                alt="Bridge2Charity"
-                width={280}
-                height={90}
-                className="h-auto w-[220px] sm:w-[280px]"
-              />
-            </div>
+          <div className="w-full rounded-2xl border border-[#E5E5E5] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:max-w-[480px]">
             <h3
               className="mb-6 text-center text-xl font-bold leading-snug text-navy"
               style={{ fontFamily: "var(--font-jakarta)" }}
@@ -160,10 +143,9 @@ export default function NewsletterSection() {
               This card is hidden intentionally.
               To make it visible when a second newsletter is launched,
               remove "hidden" from the wrapper div below.
-              Update the heading, image, and form action before activating.
+              Update the heading and form action before activating.
           ───────────────────────────────────────── */}
-          <div className="hidden w-full rounded-2xl border border-[#E5E5E5] bg-white p-10 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:max-w-[480px]">
-            {/* PASTE SECOND NEWSLETTER IMAGE HERE */}
+          <div className="hidden w-full rounded-2xl border border-[#E5E5E5] bg-white p-8 shadow-[0_2px_12px_rgba(0,0,0,0.06)] sm:max-w-[480px]">
             <h3
               className="mb-6 text-center text-xl font-bold leading-snug text-navy"
               style={{ fontFamily: "var(--font-jakarta)" }}

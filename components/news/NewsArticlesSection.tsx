@@ -32,19 +32,8 @@ function formatDate(value: string) {
 
 export default function NewsArticlesSection() {
   return (
-    <section className="bg-white py-12 lg:py-20">
+    <section className="bg-white py-10 lg:py-14">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex items-center justify-center gap-3">
-          <div className="h-px w-8 bg-orange" />
-          <span
-            className="text-sm font-semibold uppercase tracking-[3px] text-orange"
-            style={{ fontFamily: "var(--font-jakarta)" }}
-          >
-            Field Updates &amp; Stories
-          </span>
-          <div className="h-px w-8 bg-orange" />
-        </div>
-
         {/* ─── ARTICLE GRID / EMPTY STATE ──────────────────────────
             Switches automatically based on data/news.ts. Add articles
             there and this grid appears; remove them all and the empty
