@@ -124,8 +124,9 @@ export default function AboutPage() {
 
             {/* Video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
+              <Link
+                href="/video-coming-soon"
+                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 hover:border-orange/40 transition-colors duration-200 cursor-pointer"
                 style={{ background: "#f7f7f7" }}
               >
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
@@ -136,7 +137,7 @@ export default function AboutPage() {
                 <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   B2C origin video coming soon
                 </p>
-              </div>
+              </Link>
             </div>
 
           </div>
@@ -257,8 +258,9 @@ export default function AboutPage() {
 
             {/* NST video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15"
+              <Link
+                href="/video-coming-soon"
+                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-3 border-2 border-dashed border-navy/15 hover:border-orange/40 transition-colors duration-200 cursor-pointer"
                 style={{ background: "#f7f7f7" }}
               >
                 <div className="w-14 h-14 rounded-full bg-navy/8 flex items-center justify-center">
@@ -269,7 +271,7 @@ export default function AboutPage() {
                 <p className="text-navy/30 text-xs text-center px-6" style={{ fontFamily: "var(--font-nunito)" }}>
                   Rwanda NST video coming soon
                 </p>
-              </div>
+              </Link>
             </div>
 
           </div>

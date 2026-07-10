@@ -113,8 +113,9 @@ export default function EnglishEnhancementPage() {
 
             {/* Right — video placeholder */}
             <div>
-              <div
-                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-4 border-2 border-dashed border-navy/15"
+              <Link
+                href="/video-coming-soon"
+                className="w-full aspect-video rounded-2xl flex flex-col items-center justify-center gap-4 border-2 border-dashed border-navy/15 hover:border-orange/40 transition-colors duration-200 cursor-pointer"
                 style={{ background: "#f7f7f7" }}
               >
                 <div className="w-16 h-16 rounded-full bg-navy/8 flex items-center justify-center">
@@ -136,7 +137,7 @@ export default function EnglishEnhancementPage() {
                     Video coming soon
                   </p>
                 </div>
-              </div>
+              </Link>
             </div>
 
           </div>
