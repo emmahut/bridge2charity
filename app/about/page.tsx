@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import Image from "next/image"
 import TeamCollage from "@/components/about/TeamCollage"
 
 export const metadata: Metadata = {
@@ -38,16 +39,15 @@ export default function AboutPage() {
       {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-[65vh] flex items-end bg-navy overflow-hidden">
         <div className="absolute inset-0">
-          <div className="w-full h-full bg-gradient-to-br from-navy via-navy/90 to-navy/70" />
-          {/* Replace with Divine's photo: uncomment below and set src
           <Image
-            src="/images/about/divine-hero.jpg"
-            alt="Ishimwe Divine"
+            src="/images/pages/about-hero.jpg"
+            alt=""
             fill
-            className="object-cover object-top opacity-40"
+            className="object-cover object-top"
+            style={{ opacity: 0.4 }}
             priority
           />
-          */}
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/85 to-navy/70" />
         </div>
         <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
