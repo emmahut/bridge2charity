@@ -43,10 +43,10 @@ export default function AboutPage() {
             src="/images/pages/about-hero.jpg"
             alt=""
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/55 to-navy/45" />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
         </div>
         <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -63,15 +63,15 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-28">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-3xl mb-5"
-            style={{ fontFamily: "var(--font-montserrat)" }}
+            style={{ fontFamily: "var(--font-montserrat)", textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}
           >
             Rwanda Will be Built by{" "}
             <span className="text-orange">Rwandan Youth</span>{" "}
             for Rwandans.
           </h1>
           <p
-            className="text-white/65 text-base sm:text-lg max-w-xl leading-relaxed"
-            style={{ fontFamily: "var(--font-nunito)" }}
+            className="text-white/85 text-base sm:text-lg max-w-xl leading-relaxed"
+            style={{ fontFamily: "var(--font-nunito)", textShadow: "0 2px 10px rgba(0,0,0,0.55)" }}
           >
             Bridge2Charity is powered by a team of young Rwandan civic leaders who bring
             both lived experience and professional dedication to this mission.
