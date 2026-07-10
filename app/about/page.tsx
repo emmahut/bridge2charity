@@ -44,10 +44,9 @@ export default function AboutPage() {
             alt=""
             fill
             className="object-cover object-top"
-            style={{ opacity: 0.4 }}
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-navy/95 via-navy/85 to-navy/70" />
+          <div className="absolute inset-0 bg-gradient-to-br from-navy/85 via-navy/55 to-navy/45" />
         </div>
         <div className="absolute inset-0 opacity-5">
           <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
