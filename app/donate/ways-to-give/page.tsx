@@ -41,10 +41,52 @@ export default function WaysToGivePage() {
           >
             Choose How You&apos;d Like to Donate
           </h1>
-          <p style={{ color: "rgba(251,246,240,0.75)", fontSize: 16, lineHeight: 1.75, fontFamily: "var(--font-nunito)" }}>
-            Every contribution — big or small — goes directly toward supporting Rwanda&apos;s
-            primary school students.
-          </p>
+          <ul
+            style={{
+              textAlign: "left",
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              display: "flex",
+              flexDirection: "column",
+              gap: 12,
+            }}
+          >
+            <li style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+              <span
+                style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: "50%",
+                  backgroundColor: "#C9601C",
+                  flexShrink: 0,
+                  marginTop: 8,
+                }}
+              />
+              <span style={{ color: "rgba(251,246,240,0.75)", fontSize: 14, lineHeight: 1.7, fontFamily: "var(--font-nunito)" }}>
+                Bridge2Charity is in the process of becoming a formally registered organization in
+                Rwanda. While we finalize that process, donations are received through Mobile Money
+                (MoMo) and handled with the same care and accountability we bring to everything we
+                do; every donation goes directly toward supporting the students at the heart of our
+                mission.
+              </span>
+            </li>
+            <li style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+              <span
+                style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: "50%",
+                  backgroundColor: "#C9601C",
+                  flexShrink: 0,
+                  marginTop: 8,
+                }}
+              />
+              <span style={{ color: "rgba(251,246,240,0.75)", fontSize: 14, lineHeight: 1.7, fontFamily: "var(--font-nunito)" }}>
+                The number is registered to our Managing Director, David Ishimwe.
+              </span>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -90,27 +132,37 @@ export default function WaysToGivePage() {
               Send your donation directly via MTN Mobile Money using the number below.
             </p>
 
-            {/* ── PASTE MTN MOMO NUMBER + INSTRUCTIONS HERE ─────────────
-                Replace the placeholder below with the real MoMo number
-                and any merchant/code details once ready.
-            ───────────────────────────────────────────────────────── */}
             <div
               style={{
                 backgroundColor: "#FBF6F0",
                 borderRadius: 10,
                 padding: "14px 16px",
-                border: "1px dashed #C9601C",
+                border: "1px solid rgba(201,96,28,0.3)",
               }}
             >
               <p
                 style={{
                   color: "#C9601C",
-                  fontSize: 13,
+                  fontSize: 11,
                   fontWeight: 700,
+                  letterSpacing: "1px",
+                  textTransform: "uppercase",
+                  marginBottom: 6,
                   fontFamily: "var(--font-jakarta)",
                 }}
               >
-                MoMo number coming soon
+                Dial to Donate
+              </p>
+              <p
+                style={{
+                  color: "#050A30",
+                  fontSize: 19,
+                  fontWeight: 800,
+                  letterSpacing: "0.5px",
+                  fontFamily: "var(--font-montserrat)",
+                }}
+              >
+                *182*1*1*0793529307#
               </p>
             </div>
           </div>
