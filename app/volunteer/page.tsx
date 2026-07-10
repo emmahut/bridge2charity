@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { Briefcase, Users, Award, CheckCircle2 } from "lucide-react"
+import VolunteersReachedCard from "@/components/volunteer/VolunteersReachedCard"
 
 export const metadata: Metadata = {
   title: "Become a Volunteer | Bridge2Charity",
@@ -292,10 +293,7 @@ export default function VolunteerPage() {
               Are you passionate about Education, community-building, and making a direct difference
               in the lives of Rwanda&apos;s children?
             </h2>
-            <p style={{ color: "#FBF6F0", fontSize: 16, lineHeight: 1.75, fontFamily: "var(--font-nunito)" }}>
-              Learn how BIV volunteers contribute to real impact across B2C&apos;s programs — one
-              session, one visit, one child at a time.
-            </p>
+            <VolunteersReachedCard />
           </div>
           <div style={{ flexShrink: 0 }}>
             <a
