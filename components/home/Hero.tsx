@@ -24,7 +24,7 @@ function AnimatedHeadline() {
   const inView = useInView(ref, { once: true })
 
   return (
-    <div ref={ref} className="mb-6">
+    <div ref={ref} className="mb-5">
       <motion.h1
         variants={containerVariants}
         initial="hidden"
@@ -87,12 +87,6 @@ function AnimatedHeadline() {
           </svg>
         </span>
       </motion.h1>
-      <motion.span
-        className="block h-[3px] rounded-sm bg-orange mt-2"
-        initial={{ width: "0%" }}
-        animate={inView ? { width: "100%" } : { width: "0%" }}
-        transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-      />
     </div>
   )
 }
@@ -138,7 +132,7 @@ export default function Hero() {
         sizes="100vw"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/60 to-navy/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/55 to-navy/50" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
 
