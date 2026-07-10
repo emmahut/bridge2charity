@@ -168,7 +168,7 @@ export default function ProgramsPage() {
               Volunteer With Us
             </Link>
             <Link
-              href="/donate"
+              href="/donate/ways-to-give"
               className="px-8 py-3 border-2 border-white/30 hover:border-white text-white font-bold rounded-lg transition-all duration-200 text-sm"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >

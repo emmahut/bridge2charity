@@ -258,7 +258,7 @@ export default function Navigation() {
             {/* ── Right: Donate + hamburger ──────────────────────────────── */}
             <div className="flex items-center gap-3">
               <Link
-                href="/donate"
+                href="/donate/ways-to-give"
                 className="hidden sm:inline-flex items-center transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 active:translate-y-0"
                 style={{
                   backgroundColor: "#C2410C",
@@ -432,7 +432,7 @@ export default function Navigation() {
         {/* Drawer footer */}
         <div className="px-6 py-6 border-t border-white/10">
           <Link
-            href="/donate"
+            href="/donate/ways-to-give"
             className="flex items-center justify-center w-full py-3 gap-2 font-bold hover:opacity-90 transition-opacity"
             style={{
               backgroundColor: "#C2410C",

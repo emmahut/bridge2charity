@@ -2,14 +2,8 @@
 
 import { useState } from "react"
 import Image from "next/image"
-
-function PayPalIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M20.067 8.478c.492.315.844.825.983 1.43.671 2.945-1.865 5.338-4.78 5.338h-.956a.609.609 0 0 0-.601.514l-.694 4.403-.196 1.244a.321.321 0 0 1-.317.272H10.69a.272.272 0 0 1-.269-.312l1.11-7.034L7.5 3h6.19c2.05 0 3.853 1.044 4.77 2.622A4.95 4.95 0 0 1 19.5 7.5c.215.315.415.643.567.978z" />
-    </svg>
-  )
-}
+import Link from "next/link"
+import { HeartHandshake } from "lucide-react"
 
 // ── ADD NEW CARDS HERE — add a new object to this array ──────────────
 const donationItems = [
@@ -76,8 +70,6 @@ function DonationCard({
   photo: string
 }) {
   const [imgError, setImgError] = useState(false)
-  // ── PASTE DONATION LINK HERE — replace mailto with your payment processor URL ──
-  const donateHref = `mailto:bridge2char@gmail.com?subject=Donation: ${encodeURIComponent(title)}`
 
   return (
     <div
@@ -158,8 +150,8 @@ function DonationCard({
         >
           {price}
         </p>
-        <a
-          href={donateHref}
+        <Link
+          href="/donate/ways-to-give"
           className="donate-card-btn"
           style={{
             display: "flex",
@@ -179,9 +171,9 @@ function DonationCard({
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#C9601C")}
           onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#050A30")}
         >
-          <PayPalIcon />
+          <HeartHandshake size={17} />
           Donate Now
-        </a>
+        </Link>
       </div>
     </div>
   )
@@ -236,8 +228,8 @@ export default function DonatePage() {
           >
             How to Make a Difference
           </h1>
-          <a
-            href="#current-needs"
+          <Link
+            href="/donate/ways-to-give"
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -253,7 +245,7 @@ export default function DonatePage() {
             }}
           >
             DONATE TO B2C TODAY
-          </a>
+          </Link>
         </div>
       </section>
 
