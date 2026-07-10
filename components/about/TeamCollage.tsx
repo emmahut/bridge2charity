@@ -2,6 +2,13 @@ import Link from "next/link"
 import Image from "next/image"
 import { getCollageMembers } from "@/data/team"
 
+// ── Per-photo crop fixes — for source photos that are framed too wide
+// or off-center to look right in a tight square tile by default. ──────
+const collagePhotoStyle: Record<string, React.CSSProperties> = {
+  "emmanuel-uwase": { transform: "scale(1.7)", transformOrigin: "50% 22%" },
+  "innocente-impundu": { transform: "scale(1.6)", transformOrigin: "38% 28%" },
+}
+
 export default function TeamCollage() {
   const collageMembers = getCollageMembers()
 
@@ -55,6 +62,7 @@ export default function TeamCollage() {
                     width={120}
                     height={120}
                     className="w-full h-full object-cover"
+                    style={collagePhotoStyle[member.id]}
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center border border-white/5"
