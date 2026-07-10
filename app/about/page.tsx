@@ -43,7 +43,8 @@ export default function AboutPage() {
             src="/images/pages/about-hero.jpg"
             alt=""
             fill
-            className="object-cover object-center"
+            className="object-cover"
+            style={{ objectPosition: "50% 30%" }}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
