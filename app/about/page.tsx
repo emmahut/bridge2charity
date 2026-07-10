@@ -60,7 +60,7 @@ export default function AboutPage() {
         </div>
         <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange via-olive to-transparent" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-14 pt-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 pt-16">
           <h1
             className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-3xl mb-5"
             style={{ fontFamily: "var(--font-montserrat)", textShadow: "0 2px 16px rgba(0,0,0,0.55)" }}
