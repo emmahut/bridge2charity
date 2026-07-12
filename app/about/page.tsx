@@ -44,7 +44,7 @@ export default function AboutPage() {
             alt=""
             fill
             className="object-cover"
-            style={{ objectPosition: "50% 30%" }}
+            style={{ objectPosition: "50% 18%" }}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent" />
