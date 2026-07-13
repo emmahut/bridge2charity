@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     role: "Finance Lead",
     email: "ishimwedivine81@gmail.com",
     bio: "Entrepreneurship, for Divine Ishimwe, has never been about profit alone; it has always been about people. A student at African Leadership University pursuing a degree in Entrepreneurial Leadership, Divine serves as Finance Lead at B2C, where she brings financial discipline and accountability to an organization whose work depends on every franc being used well. In this role, she supports budgeting, financial management, and program resourcing, ensuring that impact is not just intended but sustained. She joined B2C driven by the belief that Education creates opportunity and that opportunity, when well-stewarded, transforms communities. Beyond her financial role, Divine is passionate about youth leadership and social entrepreneurship, the idea that business thinking, applied with purpose, can be one of the most powerful drivers of lasting change. She values integrity, service, and collaboration, and believes that every young person who chooses to show up and contribute is already part of the solution.",
-    photo: undefined,
+    photo: "/images/team/divine-ishimwe.jpg",
     initials: "ID",
     category: "executive",
     inCollage: true,
