@@ -49,7 +49,7 @@ export default function TeamCollage() {
           </div>
 
           {/* Photo mosaic — RIGHT, square tiles, tight cluster */}
-          <div className="grid grid-cols-4 gap-1">
+          <div className="grid grid-cols-4 gap-0">
             {collageMembers.slice(0, 12).map((member) => (
               <div
                 key={member.id}
