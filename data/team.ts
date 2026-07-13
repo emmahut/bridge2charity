@@ -167,7 +167,7 @@ export const teamMembers: TeamMember[] = [
     role: "OHPC Associate",
     email: "enockniyogisubizo10@gmail.com",
     bio: "Enock oversees on-site daily operations for the One Hen Per Child program, coordinating with partners, staff, and beneficiaries. He ensures project timelines, budgets, and quality standards are met, collects and reports data, engages with the community, and supervises volunteers and field staff on the ground in Bugesera District.",
-    photo: undefined,
+    photo: "/images/team/enock-niyogisubizo.jpg",
     initials: "EN",
     category: "ohpc",
     inCollage: true,
