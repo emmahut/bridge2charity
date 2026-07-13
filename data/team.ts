@@ -151,7 +151,7 @@ export const teamMembers: TeamMember[] = [
     lastName: "Niyigena",
     role: "One Hen Per Child Program, Lead",
     email: "niyigena8placide@gmail.com",
-    bio: "Placide leads the overall planning and execution of the One Hen Per Child program. He oversees the department's development, provides program reports, and prepares budget plans to ensure the program delivers lasting nutritional impact to families in Bugesera District. Placide's leadership is central to B2C's mission of sustainable community-driven change.",
+    bio: "",
     photo: "/images/team/placide-niyigena.jpg",
     initials: "PN",
     category: "ohpc",
