@@ -105,7 +105,7 @@ export const teamMembers: TeamMember[] = [
     role: "English Enhancement Program, Lead & BTS Associate",
     email: "akalizakakiza@gmail.com",
     bio: "At the heart of Bridge2Charity's English Enhancement Program, Keren Akaliza brings both structure and skills to every program activity. Originating from Gasabo District, Rwanda, Keren serves as English Enhancement Lead under Back To School, coordinating English learning activities, working closely with volunteers, and creating the kind of environment where both learners and those who teach them can genuinely grow. She joined B2C with the conviction that Education is among the most powerful forces for community transformation, and she has since turned that conviction into daily practice. Beyond her role, Keren is passionate about leadership, human connection, and community development that starts with people, not programs. She values integrity and believes that meaningful change is always collective: it happens when young people take initiative and choose to work together rather than wait for someone else to lead.",
-    photo: undefined,
+    photo: "/images/team/keren-akaliza-kiza.jpg",
     initials: "KK",
     category: "bts",
     inCollage: true,
