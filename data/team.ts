@@ -199,7 +199,7 @@ export const teamMembers: TeamMember[] = [
     role: "Operations & Support Lead",
     email: "gadmucyo1@gmail.com",
     bio: "Gad helps plan, implement, and monitor B2C's projects while organising events, workshops, and outreach activities. He collects and analyses program data, ensures follow-up on poultry and mushroom projects, and handles administrative and logistics tasks that keep the organisation running smoothly across all its programs.",
-    photo: undefined,
+    photo: "/images/team/gad-mucyo.jpg",
     initials: "GM",
     category: "operations",
     inCollage: true,
