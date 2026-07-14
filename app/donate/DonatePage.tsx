@@ -9,7 +9,7 @@ import { HeartHandshake } from "lucide-react"
 const donationItems = [
   {
     id: 1,
-    title: "MP3",
+    title: "Audio Learning Tools",
     description:
       "Support a student with audio tools that improve their English comprehension and speaking skills. Audio learning tools provide an accessible, hands-on way for primary students to build language fluency and confidence in the classroom and at home.",
     price: "$30",
@@ -17,7 +17,7 @@ const donationItems = [
   },
   {
     id: 2,
-    title: "Sponsor a Student",
+    title: "Resources and Materials",
     description:
       "Sponsors top-performing primary school students with the resources and materials needed to thrive in their education. Those resources can cover full year tuition fees, books, meals and school essential materials like uniforms, and shoes.",
     price: "$150",

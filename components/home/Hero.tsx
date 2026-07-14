@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import Button from "@/components/ui/Button"
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 
@@ -122,7 +121,7 @@ function AnimatedQuote() {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[82vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[64vh] flex items-center justify-center overflow-hidden">
       <Image
         src="/images/programs/eep-volunteer-selfie.jpg"
         alt="Bridge2Charity volunteers with students at EP Kirambo"
@@ -148,20 +147,6 @@ export default function Hero() {
 
         <AnimatedHeadline />
         <AnimatedQuote />
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-          <Button href="/volunteer" variant="primary" size="lg">
-            Become a Volunteer
-          </Button>
-          <Button
-            href="/programs"
-            variant="outline"
-            size="lg"
-            className="border-white/30 text-white/80 hover:bg-white/10 hover:border-white/60 hover:text-white"
-          >
-            Explore Our Programs
-          </Button>
-        </div>
       </div>
     </section>
   )

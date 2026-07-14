@@ -33,12 +33,12 @@ export default function VolunteerCTA() {
             Become a Volunteer
           </Button>
           <Button
-            href="/contact"
+            href="/programs"
             variant="outline"
             size="lg"
             className="border-white/30 text-white/80 hover:bg-white/10 hover:border-white/60 hover:text-white"
           >
-            Get in Touch
+            Explore Our Programs
           </Button>
         </div>
       </div>
