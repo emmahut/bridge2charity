@@ -3,7 +3,7 @@ import { Heart } from "lucide-react"
 
 export default function VolunteerCTA() {
   return (
-    <section className="relative overflow-hidden bg-navy py-14">
+    <section className="relative overflow-hidden bg-navy py-9">
       <div className="absolute top-0 left-0 w-96 h-96 bg-orange/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-olive/5 rounded-full translate-x-1/2 translate-y-1/2" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange/30 to-transparent" />
