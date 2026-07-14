@@ -160,7 +160,7 @@ export const scholarCohorts: ScholarCohort[] = [
         id: "initiative",
         firstName: "Initiative",
         lastName: "Rwamashyo",
-        school: "Kimironko",
+        school: "GS Kimironko II",
         // TODO: add grade and hometown
         consentGiven: true,
       },
@@ -168,7 +168,7 @@ export const scholarCohorts: ScholarCohort[] = [
         id: "intelligente",
         firstName: "Intelligente",
         lastName: "Rwamashyo",
-        school: "Kimironko",
+        school: "GS Kimironko II",
         // TODO: add grade and hometown
         consentGiven: true,
       },
@@ -208,7 +208,7 @@ export const scholarCohorts: ScholarCohort[] = [
         id: "sellia",
         firstName: "Sellia",
         lastName: "Akeza",
-        school: "GS Kanombwe",
+        school: "GS Kanombwe I",
         // TODO: add grade and hometown
         consentGiven: true,
       },
