@@ -188,7 +188,7 @@ export default function VolunteerPage() {
                 fontFamily: "var(--font-montserrat)",
               }}
             >
-              Bridge2Charity&apos;s BIV Program is calling young people driven by purpose to join a
+              Bridge2Charity&apos;s Internal Volunteering (BIV) is calling young people driven by purpose to join a
               mission-driven volunteer community working directly with Rwanda&apos;s most vulnerable
               primary school children.
             </h2>
