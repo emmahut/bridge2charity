@@ -161,7 +161,7 @@ export const teamMembers: TeamMember[] = [
   {
     id: "enock-niyogisubizo",
     slug: "enock-niyogisubizo",
-    name: "Niyogisubizo Enock",
+    name: "Enock Niyogisubizo",
     firstName: "Enock",
     lastName: "Niyogisubizo",
     role: "OHPC Associate",

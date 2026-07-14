@@ -3,7 +3,7 @@ import type { ScholarCohort } from "@/types/scholars"
 export const scholarCohorts: ScholarCohort[] = [
   {
     id: "cohort-1",
-    name: "Cohort 1 — Burera Scholars",
+    name: "Cohort 1 — Back To School Scholars",
     year: "2024",
     location: "Burera District",
     program: "Back to School",
@@ -154,6 +154,62 @@ export const scholarCohorts: ScholarCohort[] = [
         hometown: "Burera",
         grade: "P3",
         photoUrl: "/images/scholars/cohort-1/obedi.jpg",
+        consentGiven: true,
+      },
+      {
+        id: "initiative",
+        firstName: "Initiative",
+        lastName: "Rwamashyo",
+        school: "Kimironko",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "intelligente",
+        firstName: "Intelligente",
+        lastName: "Rwamashyo",
+        school: "Kimironko",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "pacific",
+        firstName: "Pacific",
+        lastName: "Niyorukundo",
+        school: "GS Cyahafi",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "ganza-holy",
+        firstName: "Ganza Holy",
+        lastName: "Nduwumukiza",
+        school: "GS Gisozi",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "kevin-i",
+        firstName: "Kevin",
+        lastName: "Iradukunda",
+        school: "EP Nyamweru",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "vanessa",
+        firstName: "Vanessa",
+        lastName: "Niyonsenga",
+        school: "GS Ntore",
+        // TODO: add grade and hometown
+        consentGiven: true,
+      },
+      {
+        id: "sellia",
+        firstName: "Sellia",
+        lastName: "Akeza",
+        school: "GS Kanombwe",
+        // TODO: add grade and hometown
         consentGiven: true,
       },
     ],
