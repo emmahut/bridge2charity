@@ -143,7 +143,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/company/bridge2charity"
+                href="https://www.linkedin.com/in/bridge2charity-foundation-21046840b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg bg-white/10 p-2 transition-colors duration-200 hover:bg-orange"

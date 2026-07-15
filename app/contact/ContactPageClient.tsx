@@ -45,7 +45,7 @@ const socials = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/bridge2charity", // B2C LinkedIn
+    href: "https://www.linkedin.com/in/bridge2charity-foundation-21046840b/", // B2C LinkedIn
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
