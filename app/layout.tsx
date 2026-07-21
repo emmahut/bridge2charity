@@ -41,11 +41,11 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Bridge2Charity Foundation — Empowering Rwanda's Primary Students",
+    default: "Bridge2Charity Foundation",
     template: "%s — Bridge2Charity Foundation",
   },
   description:
-    "Bridge2Charity improves primary students' lives through sustainable community initiatives in Rwanda. Join our mission through volunteering, programs, and community support.",
+    "Bridge2Charity improves primary students' education experiences through boldly innovative curriculum that spark their thoughts. Join our mission through volunteering and community support.",
   metadataBase: new URL("https://bridge2charity.org"),
   openGraph: {
     siteName: "Bridge2Charity Foundation",
