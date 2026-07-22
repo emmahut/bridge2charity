@@ -227,8 +227,8 @@ export default function WaysToGivePage() {
         <div className="max-w-4xl mx-auto" style={{ marginTop: 40, textAlign: "center" }}>
           <p style={{ color: "#3A3A3A", fontSize: 15, lineHeight: 1.75, fontFamily: "var(--font-nunito)" }}>
             Prefer another way to give? Contact{" "}
-            <a href="mailto:bridge2char@gmail.com" style={{ color: "#C9601C", fontWeight: 600 }}>
-              bridge2char@gmail.com
+            <a href="mailto:info@bridge2charity.org" style={{ color: "#C9601C", fontWeight: 600 }}>
+              info@bridge2charity.org
             </a>{" "}
             and we&apos;ll help you get it done.
           </p>

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { sendMail } from "@/lib/email"
 
 export async function POST(request: Request) {
   try {
@@ -9,23 +10,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // ── ADD EMAIL SENDING HERE ──────────────────────────────────────
-    // When Gmail App Password is ready, replace this block with nodemailer:
-    //
-    // import nodemailer from "nodemailer"
-    // const transporter = nodemailer.createTransport({
-    //   service: "gmail",
-    //   auth: { user: "bridge2char@gmail.com", pass: process.env.GMAIL_APP_PASSWORD },
-    // })
-    // await transporter.sendMail({
-    //   from: `"${name}" <${email}>`,
-    //   to: "bridge2char@gmail.com",
-    //   subject: `[B2C Contact] ${area} — from ${name}`,
-    //   text: message,
-    // })
-    // ───────────────────────────────────────────────────────────────
+    await sendMail({
+      to: process.env.CONTACT_NOTIFICATION_EMAIL || "info@bridge2charity.org",
+      cc: process.env.CONTACT_CC_EMAIL,
+      replyTo: email,
+      subject: `[B2C Contact] ${area} — from ${name}`,
+      text: `From: ${name} <${email}>\nArea of Interest: ${area}\n\n${message}`,
+    })
 
-    console.log("Contact form submission:", { name, email, area, message })
     return NextResponse.json({ success: true })
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 })

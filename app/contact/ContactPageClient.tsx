@@ -325,7 +325,7 @@ export default function ContactPageClient() {
 
               {status === "error" && (
                 <p style={{ color: "#dc2626", fontSize: 14, fontFamily: "var(--font-nunito)" }}>
-                  Something went wrong. Please try again or email us directly at bridge2char@gmail.com
+                  Something went wrong. Please try again or email us directly at info@bridge2charity.org
                 </p>
               )}
 
