@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { sendMail } from "@/lib/email"
 
 export async function POST(request: Request) {
   try {
@@ -9,13 +10,12 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    // ── ADD NEWSLETTER LIST SYNC HERE ───────────────────────────────
-    // When Gmail App Password / a mailing list provider (Mailchimp,
-    // Resend Audiences, etc.) is ready, replace this block with the
-    // real subscribe call.
-    // ─────────────────────────────────────────────────────────────────
+    await sendMail({
+      to: process.env.NEWSLETTER_NOTIFICATION_EMAIL || "info@bridge2charity.org",
+      subject: `[B2C Newsletter] New signup — ${firstName} ${lastName}`,
+      text: `${firstName} ${lastName} <${email}> subscribed to: ${list}`,
+    })
 
-    console.log("Newsletter subscription:", { firstName, lastName, email, list })
     return NextResponse.json({ success: true })
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 })
