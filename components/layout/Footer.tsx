@@ -44,11 +44,11 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <Mail size={16} strokeWidth={2.5} className="mt-0.5 flex-shrink-0 text-orange" />
                 <a
-                  href="mailto:bridge2char@gmail.com"
+                  href="mailto:info@bridge2charity.org"
                   className="text-sm font-bold text-white transition-colors hover:text-orange"
                   style={{ fontFamily: "var(--font-nunito)" }}
                 >
-                  bridge2char@gmail.com
+                  info@bridge2charity.org
                 </a>
               </li>
               <li className="flex items-start gap-3">

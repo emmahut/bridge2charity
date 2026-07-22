@@ -57,7 +57,7 @@ const socials = [
 // ─────────────────────────────────────────────────────────────────────
 
 const areaOfInterestOptions = [
-  "Back to School Program",
+  "Back To School Program",
   "English Enhancement Program (EEP)",
   "One Hen Per Child Program",
   "Volunteering & BIV Program",
